@@ -24,5 +24,8 @@ Sistema de Gerenciamento de Biblioteca:
 
 * Python;
 * PySide6;
-* QT Design;
+* QTDesign;
 * SQLAlchemy.
+
+## Desenvolvido por:
+
