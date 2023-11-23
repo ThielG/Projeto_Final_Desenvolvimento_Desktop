@@ -23,5 +23,6 @@ Sistema de Gerenciamento de Biblioteca:
 ## Tecnologias Usadas:
 
 * Python;
+* PySide6;
 * QT Design;
 * SQLAlchemy.
