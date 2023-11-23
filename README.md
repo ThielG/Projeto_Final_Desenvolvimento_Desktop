@@ -60,3 +60,44 @@ Sistema de Gerenciamento de Biblioteca:
 
 ## Desenvolvido por:
 
+Os seguintes desenvolvedores foram responsáveis pelo projeto: 
+
+<table>
+ 
+  <tr>
+   <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/105323412?v=4" width="100px;" alt="Gi"/><br>
+        <sub>
+          <b>Gislaine Formiglieri</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/118766124?v=4" width="100px;" alt="Gui"/><br>
+        <sub>
+          <b>Guilherme Thiel</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/105252686?v=4" width="100px;" alt="Na"/><br>
+        <sub>
+          <b>Natalia Heinzen</b>
+        </sub>
+      </a>
+    </td>
+<td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/143664438?v=4" width="100px;" alt="Vi"/><br>
+        <sub>
+          <b>Vitoria Braz</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</tr>
+
+</table>
