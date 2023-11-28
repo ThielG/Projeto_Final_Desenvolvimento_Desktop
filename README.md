@@ -1,6 +1,6 @@
 # Projeto_Final_Desenvolvimento_Desktop
 
-## Descrição do Trabalho: 
+## Descrição do trabalho: 
 
 Sistema de Gerenciamento de Biblioteca: 
 
@@ -51,7 +51,7 @@ Sistema de Gerenciamento de Biblioteca:
   * Integração: As funcionalidades adicionais estão bem integradas ao sistema existente?
   * Valor Agregado: As funcionalidades adicionais aumentam o valor do sistema para o usuário final?
 
-## Tecnologias Usadas:
+## Ferramentas usadas:
 
 * Python;
 * PySide6;
