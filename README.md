@@ -4,7 +4,7 @@
  <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/5.png" width="100%">
 </p>
 
-## Descrição do trabalho: 
+## 📚 Descrição do trabalho: 
 
 Sistema de Gerenciamento de Biblioteca: 
 
@@ -25,7 +25,7 @@ Sistema de Gerenciamento de Biblioteca:
   * Sistema de reserva de livros, onde usuários podem colocar livros emprestados por outros na lista de espera.
 
  
-## Pontos a serem avaliados:
+## 📄 Pontos a serem avaliados:
 
 * Qualidade do Código e Estrutura:
   * Legibilidade: O código segue as convenções do PEP 8?
@@ -55,15 +55,18 @@ Sistema de Gerenciamento de Biblioteca:
   * Integração: As funcionalidades adicionais estão bem integradas ao sistema existente?
   * Valor Agregado: As funcionalidades adicionais aumentam o valor do sistema para o usuário final?
 
-## Ferramentas usadas:
+## 🔧 Ferramentas usadas:
 
 * Python;
 * PySide6;
 * QTDesign;
 * SQLAlchemy;
+* Numpy;
+* Pandas;
+* Openpyxl;
 * Figma.
 
-## Protótipo de telas: 
+## 💻 Protótipo de telas: 
 
 Usamos o Figma para realizar uma prototipação da identidade visual da aplicação. 
 Link de acesso: www.figma.com/proto/uXYRhtGdM5HGJdXNS4oy6A/Bibl.io?type=design&node-id=1-2&t=HCzxUFBslk8txbqN-0&scaling=scale-down&page-id=0%3A1
@@ -74,7 +77,7 @@ Outras identidades visuais imaginadas:
  <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/4.png" width="80%">
 </p>
 
-## Layout de telas:
+## 🖥️ Layout de telas:
 
 ### Tela de empréstimos: 
 
@@ -94,7 +97,7 @@ Outras identidades visuais imaginadas:
  <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/3.png" width="80%">
 </p>
 
-## Desenvolvido por:
+## 🤓 Desenvolvido por:
 
 Os seguintes desenvolvedores foram responsáveis pelo projeto: 
 
