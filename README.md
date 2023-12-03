@@ -61,8 +61,8 @@ Sistema de Gerenciamento de Biblioteca:
 
 ## Protótipo de telas: 
 
-Usamos o Figma para realizar uma prototipação da identidade visual da aaplicação. 
-Link de acesso para o modelo do Figma: www.figma.com/proto/uXYRhtGdM5HGJdXNS4oy6A/Bibl.io?type=design&node-id=1-2&t=HCzxUFBslk8txbqN-0&scaling=scale-down&page-id=0%3A1
+Usamos o Figma para realizar uma prototipação da identidade visual da aplicação. 
+Link de acesso: www.figma.com/proto/uXYRhtGdM5HGJdXNS4oy6A/Bibl.io?type=design&node-id=1-2&t=HCzxUFBslk8txbqN-0&scaling=scale-down&page-id=0%3A1
 
 ## Layout de telas:
 
