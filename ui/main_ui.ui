@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
+    <width>538</width>
     <height>588</height>
    </rect>
   </property>
@@ -144,10 +144,17 @@ background-color: #EAE0D6;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
+font: 10pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px;</string>
+padding: 7px;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Pesquisar</string>
@@ -222,11 +229,17 @@ selection-background-color:#EAE0D;
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Empréstimo</string>
@@ -239,11 +252,17 @@ padding: 7px 0;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Devolução</string>
@@ -256,11 +275,17 @@ padding: 7px 0;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Reserva</string>
@@ -273,11 +298,17 @@ padding: 7px 0;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Renovação</string>
@@ -372,11 +403,17 @@ background-color: #EAE0D6;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Adicionar</string>
@@ -389,11 +426,17 @@ padding: 7px 0;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Editar</string>
@@ -406,11 +449,17 @@ padding: 7px 0;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Remover</string>
@@ -511,11 +560,17 @@ background-color: #EAE0D6;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Adicionar</string>
@@ -528,11 +583,17 @@ padding: 7px 0;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Editar</string>
@@ -545,11 +606,17 @@ padding: 7px 0;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(224, 175, 160);
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
 font: 12pt &quot;Calibri&quot;;
 border: none;
 border-radius: 5px;
-padding: 7px 0;</string>
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
                 </property>
                 <property name="text">
                  <string>Remover</string>
