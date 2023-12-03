@@ -1,5 +1,9 @@
 # Projeto_Final_Desenvolvimento_Desktop
 
+<p align="center">
+ <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/5.png" width="100%">
+</p>
+
 ## Descrição do trabalho: 
 
 Sistema de Gerenciamento de Biblioteca: 
@@ -63,6 +67,12 @@ Sistema de Gerenciamento de Biblioteca:
 
 Usamos o Figma para realizar uma prototipação da identidade visual da aplicação. 
 Link de acesso: www.figma.com/proto/uXYRhtGdM5HGJdXNS4oy6A/Bibl.io?type=design&node-id=1-2&t=HCzxUFBslk8txbqN-0&scaling=scale-down&page-id=0%3A1
+
+Outras identidades visuais imaginadas: 
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/4.png" width="80%">
+</p>
 
 ## Layout de telas:
 
