@@ -1,7 +1,6 @@
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
-from PySide6.QtGui import QPalette, QColor, Qt
+from PySide6.QtWidgets import QApplication, QMainWindow
 
 from view.main_ui import Ui_MainWindow
 

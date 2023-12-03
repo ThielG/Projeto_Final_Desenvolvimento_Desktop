@@ -27,6 +27,9 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(800, 600)
+        icon = QIcon()
+        icon.addFile(u":/logo/pilha.png", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"background-color: rgb(234, 224, 213)")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -122,6 +125,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.addWidget(self.label_3)
 
         self.tb_acervo = QTableWidget(self.tab_emprestimo)
+        header_tb_acervo = self.tb_acervo.horizontalHeader()
+        header_tb_acervo.setSectionResizeMode(QHeaderView.Stretch)
         if (self.tb_acervo.columnCount() < 6):
             self.tb_acervo.setColumnCount(6)
         __qtablewidgetitem = QTableWidgetItem()
@@ -307,6 +312,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.tb_acervo_livro = QTableWidget(self.tab_livro)
+        header_tb_acervo_livro = self.tb_acervo_livro.horizontalHeader()
+        header_tb_acervo_livro.setSectionResizeMode(QHeaderView.Stretch)
         if (self.tb_acervo_livro.columnCount() < 4):
             self.tb_acervo_livro.setColumnCount(4)
         __qtablewidgetitem6 = QTableWidgetItem()
@@ -317,8 +324,6 @@ class Ui_MainWindow(object):
         self.tb_acervo_livro.setHorizontalHeaderItem(2, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
         self.tb_acervo_livro.setHorizontalHeaderItem(3, __qtablewidgetitem9)
-        if (self.tb_acervo_livro.rowCount() < 3):
-            self.tb_acervo_livro.setRowCount(3)
         self.tb_acervo_livro.setObjectName(u"tb_acervo_livro")
         self.tb_acervo_livro.setStyleSheet(u"QTableView {\n"
 "background-color: #6ceada3;\n"
@@ -327,7 +332,6 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.tb_acervo_livro.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tb_acervo_livro.setRowCount(3)
         self.tb_acervo_livro.verticalHeader().setVisible(False)
 
         self.verticalLayout_2.addWidget(self.tb_acervo_livro)
@@ -401,6 +405,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addLayout(self.horizontalLayout)
 
         self.tb_usuarios = QTableWidget(self.tab_usuario)
+        header_tb_usuarios = self.tb_usuarios.horizontalHeader()
+        header_tb_usuarios.setSectionResizeMode(QHeaderView.Stretch)
         if (self.tb_usuarios.columnCount() < 2):
             self.tb_usuarios.setColumnCount(2)
         __qtablewidgetitem10 = QTableWidgetItem()
