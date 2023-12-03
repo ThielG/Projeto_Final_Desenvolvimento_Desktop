@@ -59,6 +59,31 @@ Sistema de Gerenciamento de Biblioteca:
 * SQLAlchemy;
 * Figma.
 
+## Protótipo de telas: 
+
+Usamos o Figma para realizar uma prototipação da identidade visual da aaplicação. 
+Link de acesso para o modelo do Figma: www.figma.com/proto/uXYRhtGdM5HGJdXNS4oy6A/Bibl.io?type=design&node-id=1-2&t=HCzxUFBslk8txbqN-0&scaling=scale-down&page-id=0%3A1
+
+## Layout de telas:
+
+### Tela de empréstimos: 
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/1.png" width="80%">
+</p>
+
+### Tela de cadastro de livros: 
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/2.png" width="80%">
+</p>
+
+### Tela de cadastro de usuário: 
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/3.png" width="80%">
+</p>
+
 ## Desenvolvido por:
 
 Os seguintes desenvolvedores foram responsáveis pelo projeto: 
@@ -102,3 +127,6 @@ Os seguintes desenvolvedores foram responsáveis pelo projeto:
 </tr>
 
 </table>
+
+
+#### Made with ☕ and Python.
