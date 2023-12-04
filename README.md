@@ -97,7 +97,7 @@ Outras identidades visuais imaginadas:
  <img src="https://raw.githubusercontent.com/ThielG/Projeto_Final_Desenvolvimento_Desktop/main/imagens/3.png" width="80%">
 </p>
 
-## 🤓 Desenvolvido por:
+## 🧠 Desenvolvido por:
 
 Os seguintes desenvolvedores foram responsáveis pelo projeto: 
 
