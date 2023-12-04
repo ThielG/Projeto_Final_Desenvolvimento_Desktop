@@ -142,4 +142,4 @@ Os seguintes desenvolvedores foram responsáveis pelo projeto:
 </table>
 
 
-#### Made with ☕ and Python.
+#### Made with ☕ and Python..
