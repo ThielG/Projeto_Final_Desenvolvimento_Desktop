@@ -57,6 +57,3 @@ class LivroRepository:
         with DBConnectionHandler() as db:
             db.session.query(Livro).filter(Livro.id == livro.id).update({'ativo': False})
             db.session.commit()
-
-
-

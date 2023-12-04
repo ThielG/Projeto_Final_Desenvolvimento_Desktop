@@ -13,11 +13,5 @@ class Emprestimo(Base):
     livro_id: Mapped[int] = mapped_column(ForeignKey("livros.id"), primary_key=True)
     data_emprestimo: Mapped[datetime] = mapped_column(nullable=True)
     data_devolucao: Mapped[datetime] = mapped_column(nullable=True)
-    data_fim_reserva:  Mapped[datetime] = mapped_column(nullable=True)
-    ativo: Mapped[bool] = mapped_column(nullable=False, default=False)
     usuarios = relationship("Usuario", back_populates="emprestimos")
-    livros = relationship("Livro", back_populates="emprestimos")
-
-    @property
-    def status_livro(self):
-        return self.livro.status if self.livro else None
+    livros = relationship("livro", back_populates="emprestimos")

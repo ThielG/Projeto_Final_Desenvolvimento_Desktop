@@ -49,14 +49,12 @@ class MainWindowService:
         main_window.tb_usuarios.setRowCount(len(lista_usuarios))
         for linha, usuario in enumerate(lista_usuarios):
             if usuario.ativo is True:
-                main_window.tb_usuarios.setItem(linha, 0, QTableWidgetItem(usuario.cpf))
-                main_window.tb_usuarios.setItem(linha, 1, QTableWidgetItem(usuario.nome))
+                main_window.tb_usuarios.setItem(linha, 0, QTableWidgetItem(usuario.nome))
 
     def populate_relatorio(self, main_window):
         main_window.tb_acervo.setRowCount(0)
         emprestimos = self.emprestimos_repository.select_emprestimos_ativos()
         # TODO Usei a função "select_emprestimos_ativos" aqui, mas talvez sua aplicação não é correta
-        # Acredito que podemos usar essa tabela como emprestimos ativos default, e mudar para livros quando clicar em pesquisar
         main_window.tb_acervo.setRowCount(len(emprestimos))
         for linha, (emprestimo, usuario, livro) in enumerate(emprestimos):
             main_window.tb_acervo.setItem(linha, 0, QTableWidgetItem(livro.ativo))
@@ -67,8 +65,6 @@ class MainWindowService:
             main_window.tb_acervo.setItem(linha, 5, QTableWidgetItem(usuario.nome))
 
     def export_relatorio(self, main_window):
-        #TODO para relatórios será necessário colocar o botão novamente, e validar se a tabela atual da página
-        # é a tabela de emprestimos ou a de livros(pesquisa)
         if main_window.tb_acervo.rowCount() > 0:
             rows = main_window.tb_acervo.rowCount()
             cols = main_window.tb_acervo.columnCount()

@@ -11,12 +11,6 @@ class UsuarioRepository:
             return usuario
 
     @staticmethod
-    def select_usuario_by_cpf(cpf_usuario):
-        with DBConnectionHandler() as db:
-            usuario = db.session.query(Usuario).filter(Usuario.cpf == cpf_usuario).first()
-            return usuario
-
-    @staticmethod
     def select_all_usuarios():
         with DBConnectionHandler() as db:
             usuarios = db.session.query(Usuario).all()
@@ -37,7 +31,7 @@ class UsuarioRepository:
     @staticmethod
     def update_usuario(usuario):
         with DBConnectionHandler() as db:
-            db.session.query(Usuario).filter(Usuario.id == usuario.id).update({'nome': usuario.nome, 'cpf': usuario.cpf})
+            db.session.query(Usuario).filter(Usuario.id == usuario.id).update({'nome': usuario.nome})
             db.session.commit()
 
     @staticmethod

@@ -32,7 +32,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QLabel" name="lbl_titulo_app">
+           <widget class="QLabel" name="label_2">
             <property name="font">
              <font>
               <family>Georgia</family>
@@ -93,7 +93,7 @@ color: #100907;</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="lbl_pesquisar">
+             <widget class="QLabel" name="label">
               <property name="styleSheet">
                <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
               </property>
@@ -105,7 +105,7 @@ color: #100907;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
               <item>
-               <widget class="QLineEdit" name="txt_pesquisa_inicio">
+               <widget class="QLineEdit" name="txt_pesquisa_inicio_2">
                 <property name="styleSheet">
                  <string notr="true">padding: 5px;
 border-radius: 5px;
@@ -114,7 +114,7 @@ background-color: #EAE0D6;</string>
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="cb_tipo_pesquisa_inicio">
+               <widget class="QComboBox" name="cb_tipodePesquisa_inicio_2">
                 <property name="cursor">
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
@@ -139,7 +139,7 @@ background-color: #EAE0D6;</string>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="btn_pesquisar_inicio">
+               <widget class="QPushButton" name="btn_pesquisar_inicio_2">
                 <property name="cursor">
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
@@ -164,7 +164,7 @@ background-color:  #ca9e90;
              </layout>
             </item>
             <item>
-             <widget class="QLabel" name="lbl_emprestimos">
+             <widget class="QLabel" name="label_3">
               <property name="styleSheet">
                <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
               </property>
@@ -270,6 +270,29 @@ background-color:  #ca9e90;
                </widget>
               </item>
               <item>
+               <widget class="QPushButton" name="btn_reserva">
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+background-color: #e0afa0;
+font: 12pt &quot;Calibri&quot;;
+border: none;
+border-radius: 5px;
+padding: 7px 0;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Reserva</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QPushButton" name="btn_renovacao">
                 <property name="cursor">
                  <cursorShape>PointingHandCursor</cursorShape>
@@ -306,7 +329,7 @@ background-color:  #ca9e90;
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QLabel" name="lbl_cadastro_livros">
+             <widget class="QLabel" name="label_4">
               <property name="styleSheet">
                <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
               </property>
@@ -316,7 +339,7 @@ background-color:  #ca9e90;
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="lbl_livro_titulo">
+             <widget class="QLabel" name="label_5">
               <property name="styleSheet">
                <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
               </property>
@@ -335,7 +358,7 @@ background-color: #EAE0D6;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="lbl_autor_livro">
+             <widget class="QLabel" name="label_6">
               <property name="styleSheet">
                <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
               </property>
@@ -354,7 +377,7 @@ background-color: #EAE0D6;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="lbl_ano_livro">
+             <widget class="QLabel" name="label_7">
               <property name="styleSheet">
                <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
               </property>
@@ -501,7 +524,7 @@ selection-background-color:#EAE0D;
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
-             <widget class="QLabel" name="lbl_cadastro_usuario">
+             <widget class="QLabel" name="label_8">
               <property name="styleSheet">
                <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
               </property>
@@ -511,7 +534,7 @@ selection-background-color:#EAE0D;
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="lbl_usuario_nome">
+             <widget class="QLabel" name="label_9">
               <property name="styleSheet">
                <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
               </property>
@@ -603,7 +626,7 @@ background-color:  #ca9e90;
              </layout>
             </item>
             <item>
-             <widget class="QTableWidget" name="tb_usuario">
+             <widget class="QTableWidget" name="tb_usuarioAtivos_usuario">
               <property name="styleSheet">
                <string notr="true">QTableView {
 background-color: #6ceada3;
@@ -612,6 +635,11 @@ selection-background-color:#EAE0D;
 
 </string>
               </property>
+              <column>
+               <property name="text">
+                <string>ID</string>
+               </property>
+              </column>
               <column>
                <property name="text">
                 <string>Nome</string>
