@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from sqlalchemy.orm import Mapped, mapped_column
-
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from infra.config.base import Base
 
 
@@ -13,6 +12,8 @@ class Livro(Base):
     autor: Mapped[str] = mapped_column(nullable=False)
     ano: Mapped[int] = mapped_column(nullable=False)
     ativo: Mapped[bool] = mapped_column(default=True, nullable=False)
+    emprestimos = relationship("Emprestimo", back_populates="livro", cascade="save-update")
+
 
     def __repr__(self):
         return f'Livro [titulo = {self.titulo}, autor = {self.autor}, ano = {self.ano}]'
