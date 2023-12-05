@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(538, 588)
+        MainWindow.resize(524, 616)
         MainWindow.setStyleSheet(u"background-color: rgb(234, 224, 213)")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -94,20 +94,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.txt_pesquisa_inicio)
 
-        self.cb_tipo_pesquisa_inicio = QComboBox(self.tab_emprestimo)
-        self.cb_tipo_pesquisa_inicio.addItem("")
-        self.cb_tipo_pesquisa_inicio.addItem("")
-        self.cb_tipo_pesquisa_inicio.addItem("")
-        self.cb_tipo_pesquisa_inicio.setObjectName(u"cb_tipo_pesquisa_inicio")
-        self.cb_tipo_pesquisa_inicio.setCursor(QCursor(Qt.PointingHandCursor))
-        self.cb_tipo_pesquisa_inicio.setStyleSheet(u"padding: 5px;")
+        self.cb_tipo_pesquisa = QComboBox(self.tab_emprestimo)
+        self.cb_tipo_pesquisa.addItem("")
+        self.cb_tipo_pesquisa.addItem("")
+        self.cb_tipo_pesquisa.addItem("")
+        self.cb_tipo_pesquisa.setObjectName(u"cb_tipo_pesquisa")
+        self.cb_tipo_pesquisa.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cb_tipo_pesquisa.setStyleSheet(u"padding: 5px;")
 
-        self.horizontalLayout_7.addWidget(self.cb_tipo_pesquisa_inicio)
+        self.horizontalLayout_7.addWidget(self.cb_tipo_pesquisa)
 
-        self.btn_pesquisar_inicio = QPushButton(self.tab_emprestimo)
-        self.btn_pesquisar_inicio.setObjectName(u"btn_pesquisar_inicio")
-        self.btn_pesquisar_inicio.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_pesquisar_inicio.setStyleSheet(u"QPushButton {\n"
+        self.btn_pesquisar = QPushButton(self.tab_emprestimo)
+        self.btn_pesquisar.setObjectName(u"btn_pesquisar")
+        self.btn_pesquisar.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_pesquisar.setStyleSheet(u"QPushButton {\n"
 "background-color: #e0afa0;\n"
 "font: 10pt \"Calibri\";\n"
 "border: none;\n"
@@ -119,20 +119,20 @@ class Ui_MainWindow(object):
 "background-color:  #ca9e90;\n"
 "}")
 
-        self.horizontalLayout_7.addWidget(self.btn_pesquisar_inicio)
+        self.horizontalLayout_7.addWidget(self.btn_pesquisar)
 
 
         self.verticalLayout_7.addLayout(self.horizontalLayout_7)
 
-        self.lbl_emprestimos = QLabel(self.tab_emprestimo)
-        self.lbl_emprestimos.setObjectName(u"lbl_emprestimos")
-        self.lbl_emprestimos.setStyleSheet(u"font: 16pt \"Calibri\";")
+        self.lbl_obras = QLabel(self.tab_emprestimo)
+        self.lbl_obras.setObjectName(u"lbl_obras")
+        self.lbl_obras.setStyleSheet(u"font: 16pt \"Calibri\";")
 
-        self.verticalLayout_7.addWidget(self.lbl_emprestimos)
+        self.verticalLayout_7.addWidget(self.lbl_obras)
 
         self.tb_acervo_emprestimos = QTableWidget(self.tab_emprestimo)
-        if (self.tb_acervo_emprestimos.columnCount() < 6):
-            self.tb_acervo_emprestimos.setColumnCount(6)
+        if (self.tb_acervo_emprestimos.columnCount() < 4):
+            self.tb_acervo_emprestimos.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         self.tb_acervo_emprestimos.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
@@ -141,10 +141,6 @@ class Ui_MainWindow(object):
         self.tb_acervo_emprestimos.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
         self.tb_acervo_emprestimos.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        self.tb_acervo_emprestimos.setHorizontalHeaderItem(4, __qtablewidgetitem4)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        self.tb_acervo_emprestimos.setHorizontalHeaderItem(5, __qtablewidgetitem5)
         self.tb_acervo_emprestimos.setObjectName(u"tb_acervo_emprestimos")
         font1 = QFont()
         font1.setFamilies([u"Calibri"])
@@ -219,6 +215,111 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addLayout(self.verticalLayout_7)
 
         self.tabWidget.addTab(self.tab_emprestimo, "")
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.verticalLayout_4 = QVBoxLayout(self.tab)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.lbl_data_inicial = QLabel(self.tab)
+        self.lbl_data_inicial.setObjectName(u"lbl_data_inicial")
+        self.lbl_data_inicial.setStyleSheet(u"font: 12pt \"Calibri\";")
+
+        self.horizontalLayout_9.addWidget(self.lbl_data_inicial)
+
+        self.txt_data_inicial = QLineEdit(self.tab)
+        self.txt_data_inicial.setObjectName(u"txt_data_inicial")
+        self.txt_data_inicial.setStyleSheet(u"padding: 5px;\n"
+"border-radius: 5px;\n"
+"background-color: #EAE0D6;\n"
+"font: 12pt \"Calibri\";")
+
+        self.horizontalLayout_9.addWidget(self.txt_data_inicial)
+
+        self.lbl_data_final = QLabel(self.tab)
+        self.lbl_data_final.setObjectName(u"lbl_data_final")
+        self.lbl_data_final.setStyleSheet(u"font: 12pt \"Calibri\";")
+
+        self.horizontalLayout_9.addWidget(self.lbl_data_final)
+
+        self.txt_data_final = QLineEdit(self.tab)
+        self.txt_data_final.setObjectName(u"txt_data_final")
+        self.txt_data_final.setStyleSheet(u"padding: 5px;\n"
+"border-radius: 5px;\n"
+"background-color: #EAE0D6;\n"
+"font: 12pt \"Calibri\";")
+
+        self.horizontalLayout_9.addWidget(self.txt_data_final)
+
+        self.btn_consultar = QPushButton(self.tab)
+        self.btn_consultar.setObjectName(u"btn_consultar")
+        self.btn_consultar.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_consultar.setStyleSheet(u"background-color: rgb(224, 175, 160);\n"
+"font: 12pt \"Calibri\";\n"
+"border: none;\n"
+"border-radius: 5px;\n"
+"padding: 5px;")
+
+        self.horizontalLayout_9.addWidget(self.btn_consultar)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_9)
+
+        self.lbl_emprestimos = QLabel(self.tab)
+        self.lbl_emprestimos.setObjectName(u"lbl_emprestimos")
+        self.lbl_emprestimos.setStyleSheet(u"font: 16pt \"Calibri\";")
+
+        self.verticalLayout_3.addWidget(self.lbl_emprestimos)
+
+        self.tb_emprestimos = QTableWidget(self.tab)
+        if (self.tb_emprestimos.columnCount() < 5):
+            self.tb_emprestimos.setColumnCount(5)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        self.tb_emprestimos.setHorizontalHeaderItem(0, __qtablewidgetitem4)
+        __qtablewidgetitem5 = QTableWidgetItem()
+        self.tb_emprestimos.setHorizontalHeaderItem(1, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        self.tb_emprestimos.setHorizontalHeaderItem(2, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.tb_emprestimos.setHorizontalHeaderItem(3, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.tb_emprestimos.setHorizontalHeaderItem(4, __qtablewidgetitem8)
+        self.tb_emprestimos.setObjectName(u"tb_emprestimos")
+        self.tb_emprestimos.setFont(font1)
+        self.tb_emprestimos.setStyleSheet(u"QTableView {\n"
+"background-color: #6ceada3;\n"
+"selection-background-color:#EAE0D;\n"
+"}\n"
+"\n"
+"")
+
+        self.verticalLayout_3.addWidget(self.tb_emprestimos)
+
+        self.btn_exportar = QPushButton(self.tab)
+        self.btn_exportar.setObjectName(u"btn_exportar")
+        self.btn_exportar.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_exportar.setStyleSheet(u"\n"
+"QPushButton {\n"
+"background-color: #e0afa0;\n"
+"font: 12pt \"Calibri\";\n"
+"border: none;\n"
+"border-radius: 5px;\n"
+"padding: 7px 0;\n"
+"margin: 0 150px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color:  #ca9e90;\n"
+"}")
+
+        self.verticalLayout_3.addWidget(self.btn_exportar)
+
+
+        self.verticalLayout_4.addLayout(self.verticalLayout_3)
+
+        self.tabWidget.addTab(self.tab, "")
         self.tab_livro = QWidget()
         self.tab_livro.setObjectName(u"tab_livro")
         self.verticalLayout_9 = QVBoxLayout(self.tab_livro)
@@ -332,14 +433,14 @@ class Ui_MainWindow(object):
         self.tb_acervo_livro = QTableWidget(self.tab_livro)
         if (self.tb_acervo_livro.columnCount() < 4):
             self.tb_acervo_livro.setColumnCount(4)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        self.tb_acervo_livro.setHorizontalHeaderItem(0, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        self.tb_acervo_livro.setHorizontalHeaderItem(1, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.tb_acervo_livro.setHorizontalHeaderItem(2, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
-        self.tb_acervo_livro.setHorizontalHeaderItem(3, __qtablewidgetitem9)
+        self.tb_acervo_livro.setHorizontalHeaderItem(0, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.tb_acervo_livro.setHorizontalHeaderItem(1, __qtablewidgetitem10)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        self.tb_acervo_livro.setHorizontalHeaderItem(2, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.tb_acervo_livro.setHorizontalHeaderItem(3, __qtablewidgetitem12)
         if (self.tb_acervo_livro.rowCount() < 3):
             self.tb_acervo_livro.setRowCount(3)
         self.tb_acervo_livro.setObjectName(u"tb_acervo_livro")
@@ -458,10 +559,10 @@ class Ui_MainWindow(object):
         self.tb_usuario = QTableWidget(self.tab_usuario)
         if (self.tb_usuario.columnCount() < 2):
             self.tb_usuario.setColumnCount(2)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        self.tb_usuario.setHorizontalHeaderItem(0, __qtablewidgetitem10)
-        __qtablewidgetitem11 = QTableWidgetItem()
-        self.tb_usuario.setHorizontalHeaderItem(1, __qtablewidgetitem11)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.tb_usuario.setHorizontalHeaderItem(0, __qtablewidgetitem13)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        self.tb_usuario.setHorizontalHeaderItem(1, __qtablewidgetitem14)
         self.tb_usuario.setObjectName(u"tb_usuario")
         self.tb_usuario.setStyleSheet(u"QTableView {\n"
 "background-color: #6ceada3;\n"
@@ -486,7 +587,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -496,12 +597,12 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.lbl_titulo_app.setText(QCoreApplication.translate("MainWindow", u"bibl.io", None))
         self.lbl_pesquisar.setText(QCoreApplication.translate("MainWindow", u"Pesquisar:", None))
-        self.cb_tipo_pesquisa_inicio.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u00edtulo", None))
-        self.cb_tipo_pesquisa_inicio.setItemText(1, QCoreApplication.translate("MainWindow", u"Autor", None))
-        self.cb_tipo_pesquisa_inicio.setItemText(2, QCoreApplication.translate("MainWindow", u"Ano de publica\u00e7\u00e3o", None))
+        self.cb_tipo_pesquisa.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u00edtulo", None))
+        self.cb_tipo_pesquisa.setItemText(1, QCoreApplication.translate("MainWindow", u"Autor", None))
+        self.cb_tipo_pesquisa.setItemText(2, QCoreApplication.translate("MainWindow", u"Ano de publica\u00e7\u00e3o", None))
 
-        self.btn_pesquisar_inicio.setText(QCoreApplication.translate("MainWindow", u"Pesquisar", None))
-        self.lbl_emprestimos.setText(QCoreApplication.translate("MainWindow", u"Empr\u00e9stimos:", None))
+        self.btn_pesquisar.setText(QCoreApplication.translate("MainWindow", u"Pesquisar", None))
+        self.lbl_obras.setText(QCoreApplication.translate("MainWindow", u"Obras:", None))
         ___qtablewidgetitem = self.tb_acervo_emprestimos.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Status", None));
         ___qtablewidgetitem1 = self.tb_acervo_emprestimos.horizontalHeaderItem(1)
@@ -509,15 +610,29 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem2 = self.tb_acervo_emprestimos.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Autor", None));
         ___qtablewidgetitem3 = self.tb_acervo_emprestimos.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Data de empr\u00e9stimo", None));
-        ___qtablewidgetitem4 = self.tb_acervo_emprestimos.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Data de retorno", None));
-        ___qtablewidgetitem5 = self.tb_acervo_emprestimos.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Usu\u00e1rio", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Ano", None));
         self.btn_emprestimo.setText(QCoreApplication.translate("MainWindow", u"Empr\u00e9stimo", None))
         self.btn_devolucao.setText(QCoreApplication.translate("MainWindow", u"Devolu\u00e7\u00e3o", None))
         self.btn_renovacao.setText(QCoreApplication.translate("MainWindow", u"Renova\u00e7\u00e3o", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_emprestimo), QCoreApplication.translate("MainWindow", u"Empr\u00e9stimo", None))
+        self.lbl_data_inicial.setText(QCoreApplication.translate("MainWindow", u"Data Inicial:", None))
+        self.txt_data_inicial.setText("")
+        self.lbl_data_final.setText(QCoreApplication.translate("MainWindow", u"Data Final:", None))
+        self.txt_data_final.setText("")
+        self.btn_consultar.setText(QCoreApplication.translate("MainWindow", u"Consultar", None))
+        self.lbl_emprestimos.setText(QCoreApplication.translate("MainWindow", u"Empr\u00e9stimos:", None))
+        ___qtablewidgetitem4 = self.tb_emprestimos.horizontalHeaderItem(0)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"T\u00edtulo", None));
+        ___qtablewidgetitem5 = self.tb_emprestimos.horizontalHeaderItem(1)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Data de empr\u00e9stimo", None));
+        ___qtablewidgetitem6 = self.tb_emprestimos.horizontalHeaderItem(2)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Data de retorno", None));
+        ___qtablewidgetitem7 = self.tb_emprestimos.horizontalHeaderItem(3)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Usu\u00e1rio", None));
+        ___qtablewidgetitem8 = self.tb_emprestimos.horizontalHeaderItem(4)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Autor", None));
+        self.btn_exportar.setText(QCoreApplication.translate("MainWindow", u"Exportar relat\u00f3rio", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Relat\u00f3rio", None))
         self.lbl_cadastro_livros.setText(QCoreApplication.translate("MainWindow", u"Livros", None))
         self.lbl_titulo_livro.setText(QCoreApplication.translate("MainWindow", u"T\u00edtulo:", None))
         self.lbl_autor_livro.setText(QCoreApplication.translate("MainWindow", u"Autor:", None))
@@ -525,14 +640,14 @@ class Ui_MainWindow(object):
         self.btn_adicionar_livro.setText(QCoreApplication.translate("MainWindow", u"Adicionar", None))
         self.btn_editar_livro.setText(QCoreApplication.translate("MainWindow", u"Editar", None))
         self.btn_remover_livro.setText(QCoreApplication.translate("MainWindow", u"Remover", None))
-        ___qtablewidgetitem6 = self.tb_acervo_livro.horizontalHeaderItem(0)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"T\u00edtulo", None));
-        ___qtablewidgetitem7 = self.tb_acervo_livro.horizontalHeaderItem(1)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Autor", None));
-        ___qtablewidgetitem8 = self.tb_acervo_livro.horizontalHeaderItem(2)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Ano de publica\u00e7\u00e3o", None));
-        ___qtablewidgetitem9 = self.tb_acervo_livro.horizontalHeaderItem(3)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Resumo", None));
+        ___qtablewidgetitem9 = self.tb_acervo_livro.horizontalHeaderItem(0)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"T\u00edtulo", None));
+        ___qtablewidgetitem10 = self.tb_acervo_livro.horizontalHeaderItem(1)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Autor", None));
+        ___qtablewidgetitem11 = self.tb_acervo_livro.horizontalHeaderItem(2)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Ano de publica\u00e7\u00e3o", None));
+        ___qtablewidgetitem12 = self.tb_acervo_livro.horizontalHeaderItem(3)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Resumo", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_livro), QCoreApplication.translate("MainWindow", u"Livro", None))
         self.lbl_cadastro_usuario.setText(QCoreApplication.translate("MainWindow", u"Cadastro de usu\u00e1rios:", None))
         self.lbl_nome_usuario.setText(QCoreApplication.translate("MainWindow", u"Nome:", None))
@@ -540,10 +655,10 @@ class Ui_MainWindow(object):
         self.btn_adicionar_usuario.setText(QCoreApplication.translate("MainWindow", u"Adicionar", None))
         self.btn_editar_usuario.setText(QCoreApplication.translate("MainWindow", u"Editar", None))
         self.btn_remover_usuario.setText(QCoreApplication.translate("MainWindow", u"Remover", None))
-        ___qtablewidgetitem10 = self.tb_usuario.horizontalHeaderItem(0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"CPF", None));
-        ___qtablewidgetitem11 = self.tb_usuario.horizontalHeaderItem(1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Nome", None));
+        ___qtablewidgetitem13 = self.tb_usuario.horizontalHeaderItem(0)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"CPF", None));
+        ___qtablewidgetitem14 = self.tb_usuario.horizontalHeaderItem(1)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"Nome", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_usuario), QCoreApplication.translate("MainWindow", u"Usu\u00e1rio", None))
     # retranslateUi
 
