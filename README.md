@@ -63,7 +63,7 @@ Para configurar a venv (*virtual environments*) para o software funcionar de man
 ```bash
 git clone https://github.com/ThielG/Projeto_Final_Desenvolvimento_Desktop 
 ```
-#### 2. Abrir o prompt de comando e acessar os arquivos clonados:
+#### 2. Acessar a pasta dos arquivos clonados:
 ```bash
 cd Projeto_Final_Desenvolvimento_Desktop
 ```
@@ -74,7 +74,7 @@ python -m venv venv
 ```bash
 .\venv\Scripts\activate
 ```
-#### 4. Instalar depedências: 
+#### 4. Instalar as depedências: 
 ```bash
 pip install -r requirements.txt
 ```
