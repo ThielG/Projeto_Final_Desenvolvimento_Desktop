@@ -71,10 +71,11 @@ cd Projeto_Final_Desenvolvimento_Desktop
 ```bash
 python -m venv venv
 ```
+#### 4. Ativar a venv:
 ```bash
 .\venv\Scripts\activate
 ```
-#### 4. Instalar as depedências: 
+#### 5. Instalar as depedências: 
 ```bash
 pip install -r requirements.txt
 ```
