@@ -55,6 +55,41 @@ Sistema de Gerenciamento de Biblioteca:
   * Integração: As funcionalidades adicionais estão bem integradas ao sistema existente?
   * Valor Agregado: As funcionalidades adicionais aumentam o valor do sistema para o usuário final?
 
+## ⚙️ Instalação:
+
+Para configurar a venv (*virtual environments*) para o software funcionar de maneira apropriada deverá seguir as intruções abaixo:
+
+#### 1. Clonar esse repositório do Git usando o seguinte comando:
+```bash
+git clone https://github.com/ThielG/Projeto_Final_Desenvolvimento_Desktop 
+```
+#### 2. Abrir o prompt de comando e acessar os arquivos clonados:
+```bash
+cd Projeto_Final_Desenvolvimento_Desktop
+```
+#### 3. Criar a venv:
+```bash
+python -m venv venv
+```
+```bash
+.\venv\Scripts\activate
+```
+#### 4. Instalar depedências: 
+```bash
+pip install -r requirements.txt
+```
+Assim, o sistema consiguirá realizar suas funções de maneira apropriada. 
+
+## 📁 Conversão de arquivos: 
+
+Para o software funcionar de maneira apropriada deverá ser convertido o arquivo .ui em .py da seguinte maneira:
+
+```bash
+pyside6-uic main.ui -o main_ui.py
+```
+
+O mesmo comando deverá ser adotado para a conversão do arquivo icon.ui. 
+
 ## 🔧 Ferramentas usadas:
 
 * Python;
