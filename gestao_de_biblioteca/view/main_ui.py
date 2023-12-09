@@ -19,14 +19,16 @@ from PySide6.QtWidgets import (QAbstractItemView, QApplication, QComboBox, QHBox
     QHeaderView, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QSpacerItem, QTabWidget,
     QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
-import icon_rc
-import source_rc
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(524, 616)
+        icon = QIcon()
+        icon.addFile(u":/icon/icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"background-color: rgb(234, 224, 213)")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -38,7 +40,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.widget.setStyleSheet(u"image: url(:/icon/icon.png);\\n")
+        self.widget.setStyleSheet(u"image: url(:/icon/pilha.png);\\n")
 
         self.horizontalLayout_6.addWidget(self.widget)
 
@@ -100,7 +102,54 @@ class Ui_MainWindow(object):
         self.cb_tipo_pesquisa.addItem("")
         self.cb_tipo_pesquisa.setObjectName(u"cb_tipo_pesquisa")
         self.cb_tipo_pesquisa.setCursor(QCursor(Qt.PointingHandCursor))
-        self.cb_tipo_pesquisa.setStyleSheet(u"padding: 5px;")
+        self.cb_tipo_pesquisa.setStyleSheet(u"QComboBox {\n"
+"    border: none;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    min-width: 6em;\n"
+"}\n"
+"\n"
+"QComboBox:editable {\n"
+"    background: white;\n"
+"}\n"
+"\n"
+"QComboBox:!editable, QComboBox::drop-down:editable {\n"
+"     background:#EAE0D6;\n"
+"}\n"
+"\n"
+"/* QComboBox gets the \"on\" state when the popup is open */\n"
+"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
+"    background: #EAE0D6;\n"
+"}\n"
+"\n"
+"QComboBox:on { /* shift the text when the popup opens */\n"
+"    padding-top: 3px;\n"
+"    padding-left: 4px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: top right;\n"
+"    width: 15px;\n"
+"\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: #e0afa0;\n"
+"    border-left-style: solid; /* just a single line */\n"
+"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"    border-bottom-right-radius: 3px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"    image: url(:/icon/down.png);\n"
+"	ma"
+                        "x-width: 22px;\n"
+"	\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
+"    top: 1px;\n"
+"    left: 1px;\n"
+"}")
 
         self.horizontalLayout_7.addWidget(self.cb_tipo_pesquisa)
 

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/icon/icon.png</normaloff>:/icon/icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(234, 224, 213)</string>
   </property>
@@ -25,7 +29,7 @@
         <item>
          <widget class="QWidget" name="widget" native="true">
           <property name="styleSheet">
-           <string notr="true">image: url(:/icon/icon.png);\n</string>
+           <string notr="true">image: url(:/icon/pilha.png);\n</string>
           </property>
          </widget>
         </item>
@@ -119,7 +123,53 @@ background-color: #EAE0D6;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">padding: 5px;</string>
+                 <string notr="true">QComboBox {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 6em;
+}
+
+QComboBox:editable {
+    background: white;
+}
+
+QComboBox:!editable, QComboBox::drop-down:editable {
+     background:#EAE0D6;
+}
+
+/* QComboBox gets the &quot;on&quot; state when the popup is open */
+QComboBox:!editable:on, QComboBox::drop-down:editable:on {
+    background: #EAE0D6;
+}
+
+QComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+
+    border-left-width: 1px;
+    border-left-color: #e0afa0;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow {
+    image: url(:/icon/down.png);
+	max-width: 22px;
+	
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    top: 1px;
+    left: 1px;
+}</string>
                 </property>
                 <item>
                  <property name="text">
@@ -801,8 +851,7 @@ selection-background-color:#EAE0D;
   </widget>
  </widget>
  <resources>
-  <include location="../../ui/icon.qrc"/>
-  <include location="../../ui/source.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>
