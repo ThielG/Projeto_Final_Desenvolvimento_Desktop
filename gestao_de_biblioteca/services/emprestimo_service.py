@@ -10,3 +10,5 @@ class EmprestimoService:
         self.emprestimo_repository = EmprestimoRepository()
         self.livro_repository = LivroRepository()
         self.usuario_repository = UsuarioRepository()
+
+    
