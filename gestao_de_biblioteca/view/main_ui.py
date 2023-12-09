@@ -25,9 +25,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(524, 616)
+        MainWindow.resize(800, 600)
         icon = QIcon()
-        icon.addFile(u":/icon/icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"view/pilha.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"background-color: rgb(234, 224, 213)")
         self.centralwidget = QWidget(MainWindow)
@@ -180,6 +180,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.addWidget(self.lbl_obras)
 
         self.tb_acervo_emprestimos = QTableWidget(self.tab_emprestimo)
+        header_acervo_emprestimos = self.tb_acervo_emprestimos.horizontalHeader()
+        header_acervo_emprestimos.setSectionResizeMode(QHeaderView.Stretch)
+        self.tb_acervo_emprestimos.verticalHeader().hide()
+        self.tb_acervo_emprestimos.setSelectionBehavior(QTableWidget.SelectRows)
+        self.tb_acervo_emprestimos.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.tb_acervo_emprestimos.setSelectionMode(QAbstractItemView.SingleSelection)
+
         if (self.tb_acervo_emprestimos.columnCount() < 4):
             self.tb_acervo_emprestimos.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
@@ -323,6 +330,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.lbl_emprestimos)
 
         self.tb_emprestimos = QTableWidget(self.tab)
+        header_emprestimos = self.tb_emprestimos.horizontalHeader()
+        header_emprestimos.setSectionResizeMode(QHeaderView.Stretch)
+        self.tb_emprestimos.verticalHeader().hide()
+        self.tb_emprestimos.setSelectionBehavior(QTableWidget.SelectRows)
+        self.tb_emprestimos.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.tb_emprestimos.setSelectionMode(QAbstractItemView.SingleSelection)
+
         if (self.tb_emprestimos.columnCount() < 5):
             self.tb_emprestimos.setColumnCount(5)
         __qtablewidgetitem4 = QTableWidgetItem()
@@ -480,6 +494,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.tb_acervo_livro = QTableWidget(self.tab_livro)
+        header_acervo_livro = self.tb_acervo_livro.horizontalHeader()
+        header_acervo_livro.setSectionResizeMode(QHeaderView.Stretch)
+        self.tb_acervo_livro.verticalHeader().hide()
+        self.tb_acervo_livro.setSelectionBehavior(QTableWidget.SelectRows)
+        self.tb_acervo_livro.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.tb_acervo_livro.setSelectionMode(QAbstractItemView.SingleSelection)
+
         if (self.tb_acervo_livro.columnCount() < 4):
             self.tb_acervo_livro.setColumnCount(4)
         __qtablewidgetitem9 = QTableWidgetItem()
@@ -606,6 +627,13 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.tb_usuario = QTableWidget(self.tab_usuario)
+        header_usuario = self.tb_usuario.horizontalHeader()
+        header_usuario.setSectionResizeMode(QHeaderView.Stretch)
+        self.tb_usuario.verticalHeader().hide()
+        self.tb_usuario.setSelectionBehavior(QTableWidget.SelectRows)
+        self.tb_usuario.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.tb_usuario.setSelectionMode(QAbstractItemView.SingleSelection)
+
         if (self.tb_usuario.columnCount() < 2):
             self.tb_usuario.setColumnCount(2)
         __qtablewidgetitem13 = QTableWidgetItem()
