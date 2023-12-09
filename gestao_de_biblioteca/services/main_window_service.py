@@ -16,43 +16,43 @@ class MainWindowService:
         self.livro_repository = LivroRepository()
         self.usuario_repository = UsuarioRepository()
 
-    def populate_tb_acervo(self, main_window):
-        emprestimos = self.emprestimos_repository.select_all_emprestimos()
-        livros = self.livro_repository.select_all_livros()
-
-        main_window.tb_acervo_emprestimos.setRowCount(len(livros))
-        for linha, (emprestimo, usuario, livro) in enumerate(livros, emprestimos):
-            main_window.tb_acervo_emprestimos.setItem(linha, 0, QTableWidgetItem(emprestimo.ativo))
-            main_window.tb_acervo_emprestimos.setItem(linha, 1, QTableWidgetItem(livro.titulo))
-            main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.autor))
-            main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.ano))
+    # def populate_tb_acervo(self, main_window):
+    #     emprestimos = self.emprestimos_repository.select_all_emprestimos()
+    #     livros = self.livro_repository.select_all_livros()
+    #
+    #     main_window.tb_acervo_emprestimos.setRowCount(len(livros))
+    #     for linha, (emprestimo, usuario, livro) in enumerate(livros, emprestimos):
+    #         main_window.tb_acervo_emprestimos.setItem(linha, 0, QTableWidgetItem(emprestimo.ativo))
+    #         main_window.tb_acervo_emprestimos.setItem(linha, 1, QTableWidgetItem(livro.titulo))
+    #         main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.autor))
+    #         main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.ano))
 
 
 
     def populate_tb_livro(self, main_window):
-        main_window.tb_acervo_livros.setRowCount(0)
+        main_window.tb_acervo_livro.setRowCount(0)
         lista_livros = self.livro_repository.select_all_livros()
         for livro in lista_livros[:]:
             if not livro.ativo:
                 lista_livros.remove(livro)
-        main_window.tb_acervo_livros.setRowCount(len(lista_livros))
+        main_window.tb_acervo_livro.setRowCount(len(lista_livros))
         for linha, livro in enumerate(lista_livros):
             if livro.ativo is True:
-                main_window.tb_acervo_livros.setItem(linha, 0, QTableWidgetItem(livro.titulo))
-                main_window.tb_acervo_livros.setItem(linha, 1, QTableWidgetItem(livro.autor))
-                main_window.tb_acervo_livros.setItem(linha, 2, QTableWidgetItem(livro.ano))
+                main_window.tb_acervo_livro.setItem(linha, 0, QTableWidgetItem(livro.titulo))
+                main_window.tb_acervo_livro.setItem(linha, 1, QTableWidgetItem(livro.autor))
+                main_window.tb_acervo_livro.setItem(linha, 2, QTableWidgetItem(livro.ano))
 
     def populate_tb_usuarios(self, main_window):
-        main_window.tb_usuarios.setRowCount(0)
+        main_window.tb_usuario.setRowCount(0)
         lista_usuarios = self.usuario_repository.select_all_usuarios()
         for usuario in lista_usuarios[:]:
             if not usuario.ativo:
                 lista_usuarios.remove(usuario)
-        main_window.tb_usuarios.setRowCount(len(lista_usuarios))
+        main_window.tb_usuario.setRowCount(len(lista_usuarios))
         for linha, usuario in enumerate(lista_usuarios):
             if usuario.ativo is True:
-                main_window.tb_usuarios.setItem(linha, 0, QTableWidgetItem(usuario.cpf))
-                main_window.tb_usuarios.setItem(linha, 1, QTableWidgetItem(usuario.nome))
+                main_window.tb_usuario.setItem(linha, 0, QTableWidgetItem(usuario.cpf))
+                main_window.tb_usuario.setItem(linha, 1, QTableWidgetItem(usuario.nome))
 
     # def populate_relatorio(self, main_window):
     #     main_window.tb_emprestimos.setRowCount(0)

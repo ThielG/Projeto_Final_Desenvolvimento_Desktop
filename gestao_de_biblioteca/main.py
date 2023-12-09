@@ -20,10 +20,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.service_usuario = UsuarioService()
         self.service_livro = LivroService()
         self.service_emprestimo = EmprestimoService()
-        # self.service_main_window.populate_relatorio()
-        # self.service_main_window.populate_tb_acervo()
-        self.service_main_window.populate_tb_livro()
-        self.service_main_window.populate_tb_usuarios()
+        # self.service_main_window.populate_relatorio(self)
+        # self.service_main_window.populate_tb_acervo(self)
+        self.service_main_window.populate_tb_livro(self)
+        self.service_main_window.populate_tb_usuarios(self)
 
     def adicionar_usuario(self):
         self.service_usuario.insert_usuario(self)
