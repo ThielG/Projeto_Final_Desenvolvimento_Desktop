@@ -49,7 +49,10 @@ class LivroRepository:
     @staticmethod
     def update_livro(livro):
         with DBConnectionHandler() as db:
-            db.session.query(Livro).filter(Livro.id == livro.id).update({'titulo': livro.titulo, 'autor': livro.autor, 'ano': livro.ano})
+            db.session.query(Livro).filter(Livro.id == livro.id).update({'titulo': livro.titulo,
+                                                                         'autor': livro.autor,
+                                                                         'ano': livro.ano,
+                                                                         'status_disponivel': livro.status_disponivel})
             db.session.commit()
 
     @staticmethod

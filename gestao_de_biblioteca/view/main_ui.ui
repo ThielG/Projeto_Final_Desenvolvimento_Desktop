@@ -87,7 +87,7 @@ color: #100907;</string>
          <string notr="true">background-color: rgb(244, 243, 238);</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_emprestimo">
          <attribute name="title">

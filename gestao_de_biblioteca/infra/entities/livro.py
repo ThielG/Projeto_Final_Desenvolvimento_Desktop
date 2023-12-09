@@ -12,6 +12,7 @@ class Livro(Base):
     autor: Mapped[str] = mapped_column(nullable=False)
     ano: Mapped[int] = mapped_column(nullable=False)
     ativo: Mapped[bool] = mapped_column(default=True, nullable=False)
+    status_disponivel: Mapped[bool] = mapped_column(default=True, nullable=False)
     emprestimos = relationship("Emprestimo", back_populates="livro", cascade="save-update")
 
 

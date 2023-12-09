@@ -18,7 +18,8 @@ class EmprestimoRepository:
             emp.usuario_id = usuario.id
             today = datetime.now()
             emp.data_emprestimo = today
-            emp.ativo = True;
+            emp.ativo = True
+            livro.status_disponivel = False
             try:
                 db.session.add(emp)
                 db.session.commit()
@@ -33,6 +34,7 @@ class EmprestimoRepository:
                 db.session.query(Emprestimo).filter(Emprestimo.livro_id == livro.id,
                                                     Emprestimo.usuario_id == usuario.id,
                                                     ).update({'data_devolucao': today, 'ativo': False})
+                db.session.query(Livro).filter(Livro.id == livro.id).update({'status_disponivel': True})
                 db.session.commit()
             except Exception as e:
                 print(f'Erro: {e}')
