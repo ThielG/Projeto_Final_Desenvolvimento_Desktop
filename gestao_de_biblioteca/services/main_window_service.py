@@ -57,8 +57,6 @@ class MainWindowService:
 
             self.populate_tb_acervo(main_window, livros)
 
-
-
     def populate_tb_livro(self, main_window):
         main_window.tb_acervo_livro.setRowCount(0)
         lista_livros = self.livro_repository.select_all_livros()

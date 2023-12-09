@@ -24,6 +24,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.service_main_window.populate_tb_acervo(self)
         self.service_main_window.populate_tb_livro(self)
         self.service_main_window.populate_tb_usuarios(self)
+        self.btn_adicionar_usuario.clicked.connect(self.adicionar_usuario)
+        self.btn_editar_usuario.clicked.connect(self.atualizar_usuario)
+        self.btn_remover_usuario.clicked.connect(self.remover_usuario)
 
 
         #tela emprestimo

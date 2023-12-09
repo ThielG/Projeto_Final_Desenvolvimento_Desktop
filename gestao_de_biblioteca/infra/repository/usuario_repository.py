@@ -29,9 +29,9 @@ class UsuarioRepository:
             return usuario
 
     @staticmethod
-    def insert_one_usuario():
+    def insert_one_usuario(usuario):
         with DBConnectionHandler() as db:
-            db.session.add(Usuario)
+            db.session.add(usuario)
             db.session.commit()
 
     @staticmethod

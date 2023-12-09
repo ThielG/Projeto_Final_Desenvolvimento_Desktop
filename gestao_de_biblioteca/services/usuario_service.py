@@ -18,22 +18,25 @@ class UsuarioService:
     def insert_usuario(self, main_window):
         usuario = Usuario()
         usuario.nome = main_window.txt_nome_usuario.text()
+        usuario.cpf = main_window.txt_cpf_usuario.text()
         usuario.ativo = True
         try:
             self.usuario_repository.insert_one_usuario(usuario)
-            main_window.txt_nome_usuario.setText("")
-            self.main_window_service.populate_tb_usuario(main_window)
+            main_window.txt_nome_usuario.setText('')
+            main_window.txt_cpf_usuario.setText('')
+            self.main_window_service.populate_tb_usuarios(main_window)
             QMessageBox.information(main_window, "Cadastro de usuário", "Usuário cadastrado com sucesso!")
         except Exception as e:
-            QMessageBox.warning(main_window, "Atenção", f"Problema ao cadastrar usuário.\n")
+            QMessageBox.warning(main_window, "Atenção", f"Problema ao cadastrar usuário.\n {e}")
 
     def update_usuario(self, main_window):
         if main_window.btn_editar_usuario.text() == 'Editar':
-            selected_rows = main_window.tb_usuarios.selectionModel().selectedRows()
+            selected_rows = main_window.tb_usuario.selectionModel().selectedRows()
             if not selected_rows:
                 return
             selected_row = selected_rows[0].row()
-            main_window.txt_nome_usuario.setText(main_window.tb_usuario.item(selected_row, 0).text())
+            main_window.txt_cpf_usuario.setText(main_window.tb_usuario.item(selected_row, 0).text())
+            main_window.txt_nome_usuario.setText(main_window.tb_usuario.item(selected_row, 1).text())
             main_window.txt_cpf_usuario.setReadOnly(True)
             main_window.btn_editar_usuario.setText('Atualizar')
         else:
@@ -47,17 +50,17 @@ class UsuarioService:
                 main_window.btn_editar_usuario.setText('Editar')
                 main_window.txt_nome_usuario.clear()
                 main_window.txt_cpf_usuario.clear()
-                self.service_main_window.populate_tb_usuario(main_window)
+                self.main_window_service.populate_tb_usuarios(main_window)
             except Exception as e:
                 QMessageBox.warning(main_window, "Atenção", f"Problema ao atualizar funcionário.\n")
 
-    def delete_usuario(self,main_window):
-        selected_rows = main_window.tb_usuarios.selectionModel().selectedRows()
+    def delete_usuario(self, main_window):
+        selected_rows = main_window.tb_usuario.selectionModel().selectedRows()
         if not selected_rows:
             return
         selected_row = selected_rows[0].row()
-        usuario_delete = self.usuario_repository.select_usuario_by_cpf(main_window.tb_usuarios.item(
-                                                                        selected_row, 1).text())
+        usuario_delete = self.usuario_repository.select_usuario_by_cpf(main_window.tb_usuario.item(
+                                                                        selected_row, 0).text())
         msg_box = QMessageBox(main_window)
         msg_box.setWindowTitle('Remover usuário')
         msg_box.setText(f'Tem certeza de que deseja remover o usuário {usuario_delete.nome}?')
@@ -68,7 +71,7 @@ class UsuarioService:
         if msg_box.clickedButton() == yes_button:
             try:
                 self.usuario_repository.delete_usuario(usuario_delete)
-                self.service_main_window.populate_tb_usuario(main_window)
+                self.main_window_service.populate_tb_usuarios(main_window)
             except Exception as e:
                 QMessageBox.warning(main_window, "Atenção", "Problema ao remover usuário.\n"
                                     f"Erro: {e}")
