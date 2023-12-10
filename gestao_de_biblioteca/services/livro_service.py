@@ -63,11 +63,11 @@ class LivroService:
 
 
     def delete_livro(self, main_window):
-        selected_rows = main_window.tb_acervo_livro.selectionModel().selectRows()
+        selected_rows = main_window.tb_acervo_livro.selectionModel().selectedRows()
         if not selected_rows:
             return
-        selected_rows = selected_rows[0].row()
-        delete_livro = self.livro_repository.select_livro_by_titulo(main_window.tb_acervo_livro.item(selected_rows, 0).text())
+        selected_row = selected_rows[0].row()
+        delete_livro = self.livro_repository.select_livro_by_titulo(main_window.tb_acervo_livro.item(selected_row, 0).text())
         msg_box = QMessageBox(main_window)
         msg_box.setWindowTitle("Remover livro")
         msg_box.setIcon(QMessageBox.Question)

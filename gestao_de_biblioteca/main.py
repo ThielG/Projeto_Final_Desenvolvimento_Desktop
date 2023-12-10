@@ -8,6 +8,7 @@ from services.livro_service import LivroService
 from services.usuario_service import UsuarioService
 
 from view.main_ui import Ui_MainWindow
+from view.emprestimo_ui import Ui_Dialog
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -20,8 +21,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.service_main_window.populate_tb_usuarios(self)
         self.service_livro = LivroService()
         self.service_emprestimo = EmprestimoService()
-        # self.service_main_window.populate_relatorio(self)
-        # self.service_main_window.populate_tb_acervo(self)
+        self.service_main_window.pesquisar_livro(self)
         self.service_main_window.populate_tb_livro(self)
         self.service_main_window.populate_tb_usuarios(self)
         self.btn_adicionar_usuario.clicked.connect(self.adicionar_usuario)
@@ -30,10 +30,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
         #tela emprestimo
-        #self.btn_pesquisar.clicked.connect(self.pesquisar_livro)
-        #self.btn_emprestimo.clicked.connect(self.emprestar_livro)
-        #self.btn_devolucao.clicked.connect(self.devolver_livro)
-        #self.btn_renovacao.clicked.connect(self.remover_emprestimo())
+        self.btn_pesquisar.clicked.connect(self.pesquisar_livro)
+        self.btn_emprestimo.clicked.connect(self.emprestar_livro)
+        self.btn_devolucao.clicked.connect(self.devolver_emprestimo)
+        self.btn_renovacao.clicked.connect(self.remover_emprestimo)
 
         #tela relatorio
         self.btn_consultar.clicked.connect(self.adicionar_usuario)
@@ -41,29 +41,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
         #tela livro
-        self.btn_adicionar_livro.connect(self.adicionar_livro)
+        self.btn_adicionar_livro.clicked.connect(self.adicionar_livro)
         self.btn_editar_livro.clicked.connect(self.atualizar_livro)
-        self.btn_remover_livro.connect(self.remover_livro)
+        self.btn_remover_livro.clicked.connect(self.remover_livro)
 
         #tela usuario
-        self.btn_adicionar_usuario.connect(self.adicionar_usuario)
+        self.btn_adicionar_usuario.clicked.connect(self.adicionar_usuario)
         self.btn_editar_usuario.clicked.connect(self.atualizar_usuario)
-        self.btn_remover_usuario.connect(self.remover_livro)
+        self.btn_remover_usuario.clicked.connect(self.remover_livro)
 
 
-    #def pesquisar_emprestimo(self):
-        #self.service_emprestimo.pesquisa_emprestimos(self)
+    def pesquisar_livro(self):
+        self.service_main_window.pesquisar_livro(self)
 
-    #def emprestar_livro(self):
-        #self.emprestar_livro()
+    def emprestar_livro(self):
+        livro = self.service_emprestimo.select_livro_emprestimo(self)
+        if livro is not None:
+            emprestimo_ui = EmprestimoDialog(self, livro)
+            emprestimo_ui.exec_()
 
-    #def devolver_emprestimo(self):
-        #self.service_emprestimo.devolve_emprestimo(self)
+    def devolver_emprestimo(self):
+        self.service_emprestimo.devolver_emprestimo(self)
 
-    #def remover_emprestimo(self):
-        #self.service_emprestimo.delete_emprestimo(self)
-
-
+    def remover_emprestimo(self):
+        self.service_emprestimo.devolver_emprestimo(self)
 
     def adicionar_livro(self):
         self.service_livro.insert_livro(self)
@@ -82,6 +83,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def remover_usuario(self):
         self.service_usuario.delete_usuario(self)
+
+class EmprestimoDialog(QDialog, Ui_Dialog):
+    def __init__(self, parent=None, livro=None):
+        super(EmprestimoDialog, self).__init__(parent)
+        self.selected_usuario = None
+        self.livro = livro
+        self.setupUi(self)
+        self.service_main_window = MainWindowService()
+        self.service_usuario = UsuarioService()
+        self.service_emprestimo = EmprestimoService()
+        self.service_livro = LivroService()
+
+        self.btn_consultar_emprestimo.clicked.connect(self.select_usuario)
+        self.btn_confirmar_emprestimo.clicked.connect(self.adicionar_emprestimo)
+
+    def select_usuario(self):
+        self.service_usuario.select_usuario(self)
+    def adicionar_emprestimo(self):
+        self.service_emprestimo.adicionar_emprestimo(self, self.livro)
+
+
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

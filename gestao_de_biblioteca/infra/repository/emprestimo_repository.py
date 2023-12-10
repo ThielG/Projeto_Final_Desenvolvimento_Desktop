@@ -27,7 +27,9 @@ class EmprestimoRepository:
                 print(f'Erro: {e}')
 
     @staticmethod
-    def finalize_emprestimo(usuario, livro):
+    def finalize_emprestimo(emprestimo):
+        livro = emprestimo.livro
+        usuario = emprestimo.usuario
         with DBConnectionHandler() as db:
             today = datetime.now()
             try:

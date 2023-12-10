@@ -75,3 +75,27 @@ class UsuarioService:
             except Exception as e:
                 QMessageBox.warning(main_window, "Atenção", "Problema ao remover usuário.\n"
                                     f"Erro: {e}")
+
+    def select_usuario(self, emprestimo_ui):
+        if emprestimo_ui.btn_consultar_emprestimo.text() == 'Limpar':
+            emprestimo_ui.txt_nome_emprestimo.clear()
+            emprestimo_ui.txt_cpf_emprestimo.clear()
+            emprestimo_ui.selected_usuario = None
+            emprestimo_ui.btn_consultar_emprestimo.setText('Consultar')
+        else:
+            try:
+                usuario_emprestimo = self.usuario_repository.select_usuario_by_cpf(emprestimo_ui.
+                                                                                   txt_cpf_emprestimo.
+                                                                                   text())
+                if emprestimo_ui.txt_cpf_emprestimo.text() != '':
+                    emprestimo_ui.txt_nome_emprestimo.setText(usuario_emprestimo.nome)
+                    emprestimo_ui.selected_usuario = usuario_emprestimo
+                    emprestimo_ui.txt_nome_emprestimo.setReadOnly(True)
+                    emprestimo_ui.btn_consultar_emprestimo.setText('Limpar')
+                else:
+                    QMessageBox.warning(emprestimo_ui, "Atenção", "Digite um CPF para consulta!")
+            except Exception as e:
+                QMessageBox.warning(emprestimo_ui, "Atenção", "Usuário não encontrado!")
+                emprestimo_ui.txt_nome_emprestimo.clear()
+
+
