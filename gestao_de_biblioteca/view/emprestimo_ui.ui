@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>298</width>
+    <height>277</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icon/pilha.png</normaloff>:/icon/pilha.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(244, 243, 238);</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="lbl_emprestimo_livro">
+       <property name="styleSheet">
+        <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Empréstimo:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_livro_emprestimo">
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Livro:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="txt_livro_emprestimo">
+       <property name="styleSheet">
+        <string notr="true">padding: 5px;
+border-radius: 5px;
+background-color: #EAE0D6;</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_cpf_emprestimo">
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
+       </property>
+       <property name="text">
+        <string>CPF:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLineEdit" name="txt_cpf_emprestimo">
+         <property name="styleSheet">
+          <string notr="true">padding: 5px;
+border-radius: 5px;
+background-color: #EAE0D6;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_consultar_emprestimo">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+background-color: #e0afa0;
+font: 10pt &quot;Calibri&quot;;
+border: none;
+border-radius: 5px;
+padding: 7px;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
+         </property>
+         <property name="text">
+          <string>Consultar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_nome_emprestimo">
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Nome:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="txt_nome_emprestimo">
+       <property name="styleSheet">
+        <string notr="true">padding: 5px;
+border-radius: 5px;
+background-color: #EAE0D6;</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_confirmar_emprestimo">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-color: #e0afa0;
+font: 10pt &quot;Calibri&quot;;
+border: none;
+border-radius: 5px;
+padding: 7px;
+margin:10px 40px;
+}
+
+QPushButton:hover {
+background-color:  #ca9e90;
+}</string>
+       </property>
+       <property name="text">
+        <string>Confirmar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
