@@ -92,16 +92,18 @@ class MainWindowService:
                 main_window.tb_usuario.setItem(linha, 0, QTableWidgetItem(usuario.cpf))
                 main_window.tb_usuario.setItem(linha, 1, QTableWidgetItem(usuario.nome))
 
-    # def populate_relatorio(self, main_window):
-    #     main_window.tb_emprestimos.setRowCount(0)
-    #     emprestimos = self.emprestimos_repository.select_emprestimos_in_period()
-    #     main_window.tb_emprestimos.setRowCount(len(emprestimos))
-    #     for linha, (emprestimo, usuario, livro) in enumerate(emprestimos):
-    #         main_window.tb_emprestimos.setItem(linha, 0, QTableWidgetItem(livro.titulo))
-    #         main_window.tb_emprestimos.setItem(linha, 1, QTableWidgetItem(emprestimo.data_emprestimo))
-    #         main_window.tb_emprestimos.setItem(linha, 2, QTableWidgetItem(emprestimo.data_devolucao))
-    #         main_window.tb_emprestimos.setItem(linha, 3, QTableWidgetItem(usuario.nome))
-    #         main_window.tb_emprestimos.setItem(linha, 4, QTableWidgetItem(livro.autor))
+    def populate_relatorio(self, main_window):
+        main_window.tb_emprestimos.setRowCount(0)
+        emprestimos = self.emprestimos_repository.select_all_emprestimos()
+        main_window.tb_emprestimos.setRowCount(len(emprestimos))
+        for linha, (emprestimo) in enumerate(emprestimos):
+            livro = emprestimo.livro
+            usuario = emprestimo.usuario
+            main_window.tb_emprestimos.setItem(linha, 0, QTableWidgetItem(livro.titulo))
+            main_window.tb_emprestimos.setItem(linha, 1, QTableWidgetItem(emprestimo.data_emprestimo.strftime("%d/%m/%Y %H:%M")))
+            main_window.tb_emprestimos.setItem(linha, 2, QTableWidgetItem(emprestimo.data_devolucao.strftime("%d/%m/%Y %H:%M")))
+            main_window.tb_emprestimos.setItem(linha, 3, QTableWidgetItem(usuario.nome))
+            main_window.tb_emprestimos.setItem(linha, 4, QTableWidgetItem(livro.autor))
 
 
     # def export_relatorio(self, main_window):

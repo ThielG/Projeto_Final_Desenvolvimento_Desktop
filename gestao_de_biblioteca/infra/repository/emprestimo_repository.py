@@ -20,9 +20,12 @@ class EmprestimoRepository:
             emp.data_emprestimo = today
             emp.data_devolucao = today + timedelta(days=7)
             emp.ativo = True
-            livro.status_disponivel = False
             try:
                 db.session.add(emp)
+                db.session.commit()
+
+                db.session.query(Livro).filter(Livro.id == livro.id).update(
+                    {'status_disponivel': False})
                 db.session.commit()
             except Exception as e:
                 print(f'Erro: {e}')
@@ -46,8 +49,8 @@ class EmprestimoRepository:
     @staticmethod
     def select_all_emprestimos():
         with DBConnectionHandler() as db:
-            emprestimos = db.session.query(Emprestimo).options(joinedload(Emprestimo.usuarios),
-                                                               joinedload(Emprestimo.livros)).all()
+            emprestimos = db.session.query(Emprestimo).options(joinedload(Emprestimo.usuario),
+                                                               joinedload(Emprestimo.livro)).all()
             return emprestimos
 
     @staticmethod
