@@ -28,15 +28,17 @@ class EmprestimoService:
         return livro_emprestimo
 
     def adicionar_emprestimo(self, emprestimo_ui, livro):
-        if emprestimo_ui.selected_usuario is not None:
-            selected_usuario = self.service_usuario.select_usuario(emprestimo_ui)
-            try:
-                self.emprestimo_repository.insert_emprestimo(selected_usuario, livro)
-                QMessageBox.information(emprestimo_ui, "Emprestimos", "Empréstimo cadastrado com sucesso!")
-            except Exception as e:
-                QMessageBox.warning(emprestimo_ui, "Atenção", f"Erro ao cadastrar empréstimo!\n{e}")
+        if livro.status_disponivel:
+            if emprestimo_ui.selected_usuario is not None:
+                try:
+                    self.emprestimo_repository.insert_emprestimo(emprestimo_ui.selected_usuario, livro)
+                    QMessageBox.information(emprestimo_ui, "Emprestimos", "Empréstimo cadastrado com sucesso!")
+                except Exception as e:
+                    QMessageBox.warning(emprestimo_ui, "Atenção", "Erro ao cadastrar empréstimo!")
+            else:
+                QMessageBox.warning(emprestimo_ui, "Atenção", "Nenhum usuário informado!")
         else:
-            QMessageBox.warning(emprestimo_ui, "Atenção", "Nenhum funcionario informado!")
+            QMessageBox.warning(emprestimo_ui, "Atenção", "Livro indisponível.")
 
     def devolver_emprestimo(self, main_window):
         selected_rows = main_window.tb_acervo_emprestimos.selectionModel().selectedRows()

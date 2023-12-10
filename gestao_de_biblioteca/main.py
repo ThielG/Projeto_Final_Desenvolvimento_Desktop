@@ -1,6 +1,7 @@
 import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
+from PySide6.QtCore import Signal
 
 from services.main_window_service import MainWindowService
 from services.emprestimo_service import EmprestimoService
@@ -23,15 +24,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.service_livro = LivroService()
         self.service_emprestimo = EmprestimoService()
 
-        #tela emprestimo
+        self.service_main_window.populate_tb_acervo(self)
+        self.service_main_window.populate_tb_usuarios(self)
+        self.service_main_window.populate_tb_livro(self)
+        self.service_main_window.populate_relatorio(self)
+
+        # tela emprestimo
         self.btn_pesquisar.clicked.connect(self.pesquisar_livro)
         self.btn_emprestimo.clicked.connect(self.emprestar_livro)
         self.btn_devolucao.clicked.connect(self.devolver_emprestimo)
         self.btn_renovacao.clicked.connect(self.remover_emprestimo)
 
-        #tela relatorio
-        self.btn_consultar.clicked.connect(self.adicionar_usuario)
-        self.btn_exportar.clicked.connect(self.atualizar_usuario)
+        # tela relatorio
+        # self.btn_consultar.clicked.connect(self.adicionar_usuario)
+        # self.btn_exportar.clicked.connect(self.atualizar_usuario)
+
 
         #tela livro
         self.btn_adicionar_livro.clicked.connect(self.adicionar_livro)
@@ -87,6 +94,7 @@ class EmprestimoDialog(QDialog, Ui_Dialog):
         self.service_usuario = UsuarioService()
         self.service_emprestimo = EmprestimoService()
         self.service_livro = LivroService()
+        self.txt_livro_emprestimo.setText(livro.titulo)
 
         self.btn_consultar_emprestimo.clicked.connect(self.select_usuario)
         self.btn_confirmar_emprestimo.clicked.connect(self.adicionar_emprestimo)
@@ -96,6 +104,8 @@ class EmprestimoDialog(QDialog, Ui_Dialog):
 
     def adicionar_emprestimo(self):
         self.service_emprestimo.adicionar_emprestimo(self, self.livro)
+        self.service_main_window.populate_tb_acervo(main_window=MainWindow)
+
 
 
 if __name__ == "__main__":
