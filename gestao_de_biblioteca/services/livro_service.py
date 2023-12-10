@@ -34,7 +34,7 @@ class LivroService:
 
     def update_livro(self, main_window):
         if main_window.btn_editar_livro.text() == 'Editar':
-            selected_rows = main_window.tb_acervo_livro.selectionModel().selected_rows()
+            selected_rows = main_window.tb_acervo_livro.selectionModel().selectedRows()
             if not selected_rows:
                 QMessageBox.warning(main_window, 'Livro', 'Selecione um livro.')
                 return

@@ -18,68 +18,54 @@ class MainWindowService:
 
 
 
-    def populate_tb_acervo(self, main_window, lista_livros):
+    def populate_tb_acervo(self, main_window):
+
+        main_window.tb_acervo_emprestimos.setRowCount(0)
+        lista_livros = self.livro_repository.select_all_livros()
+
         for livro in lista_livros[:]:
             if not livro.ativo:
                 lista_livros.remove(livro)
 
-        main_window.tb_acervo_livro.setRowCount(len(lista_livros))
+        main_window.tb_acervo_emprestimos.setRowCount(len(lista_livros))
         for linha, livro in enumerate(lista_livros):
             if livro.ativo is True:
                 main_window.tb_acervo_emprestimos.setItem(linha, 0, QTableWidgetItem(
                     "Dispovível" if livro.status_disponivel is True else "Emprestado"))
                 main_window.tb_acervo_emprestimos.setItem(linha, 1, QTableWidgetItem(livro.titulo))
                 main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.autor))
-                main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.ano))
+                main_window.tb_acervo_emprestimos.setItem(linha, 3, QTableWidgetItem(str(livro.ano)))
 
     def pesquisar_livro(self, main_window):
-        tipo_pesquisa = main_window.cb_tipo_pesquisa.currentText()
-        if main_window.txt_pesquisa_inicio.text() != "":
-            if tipo_pesquisa == "Título":
-                lista_livros = self.livro_repository.select_livro_by_titulo(main_window.txt_pesquisa_inicio.text())
-            elif tipo_pesquisa == "Ano":
-                lista_livros = self.livro_repository.select_livro_by_ano(main_window.txt_pesquisa_inicio.text())
-            elif tipo_pesquisa == "Autor":
-                lista_livros = self.livro_repository.select_livro_by_autor(main_window.txt_pesquisa_inicio.text())
-            else:
-                QMessageBox.warning(main_window, 'Pesquisa', 'Tipo de pesquisa inválido.')
-                return
+        main_window.tb_acervo_emprestimos.setRowCount(0)
+        if (main_window.txt_pesquisa_inicio.text() != ""
+                and main_window.cb_tipo_pesquisa.currentText() == "Título"):
+            livros = self.livro_repository.select_livro_by_titulo(main_window.txt_pesquisa_inicio.text())
+
+        elif (main_window.txt_pesquisa_inicio.text() != ""
+              and main_window.cb_tipo_pesquisa.currentText() == "Autor"):
+            livros = self.livro_repository.select_livro_by_autor(main_window.txt_pesquisa_inicio.text())
+
+        elif (main_window.txt_pesquisa_inicio.text() != ""
+              and main_window.cb_tipo_pesquisa.currentText() == "Ano de publicação"):
+            livros = self.livro_repository.select_livro_by_ano(main_window.txt_pesquisa_inicio.text())
+
         else:
             QMessageBox.warning(main_window, 'Pesquisa', 'Informe um texto de pesquisa e selecione o tipo.')
             return
 
-        self.populate_tb_acervo(main_window, lista_livros)
+        for livro in livros[:]:
+            if not livro.ativo:
+                livros.remove(livro)
 
-
-    def pesquisar_livro_by_titulo(self, main_window):
-        if main_window.txt_pesquisa_inicio.text() != "" and main_window.cb_tipo_pesquisa.currentText() == "Título":
-            livros = self.livro_repository.select_livro_by_titulo(main_window.txt_pesquisa_inicio.text())
-
-            for livro in livros[:]:
-                if not livro.ativo:
-                    livros.remove(livro)
-
-            self.populate_tb_acervo(main_window, livros)
-
-    def pesquisar_livro_by_autor(self, main_window):
-        if main_window.txt_pesquisa_inicio.text() != "" and main_window.cb_tipo_pesquisa.currentText() == "Autor":
-            livros = self.livro_repository.select_livro_by_autor(main_window.txt_pesquisa_inicio.text())
-
-            for livro in livros[:]:
-                if not livro.ativo:
-                    livros.remove(livro)
-
-            self.populate_tb_acervo(main_window, livros)
-
-    def pesquisar_livro_by_ano(self, main_window):
-        if main_window.txt_pesquisa_inicio.text() != "" and main_window.cb_tipo_pesquisa.currentText() == "Ano":
-            livros = self.livro_repository.select_livro_by_ano(main_window.txt_pesquisa_inicio.text())
-
-            for livro in livros[:]:
-                if not livro.ativo:
-                    livros.remove(livro)
-
-            self.populate_tb_acervo(main_window, livros)
+        main_window.tb_acervo_emprestimos.setRowCount(len(livros))
+        for linha, livro in enumerate(livros):
+            if livro.ativo is True:
+                main_window.tb_acervo_emprestimos.setItem(linha, 0, QTableWidgetItem(
+                    "Dispovível" if livro.status_disponivel is True else "Emprestado"))
+                main_window.tb_acervo_emprestimos.setItem(linha, 1, QTableWidgetItem(livro.titulo))
+                main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.autor))
+                main_window.tb_acervo_emprestimos.setItem(linha, 3, QTableWidgetItem(str(livro.ano)))
 
     def populate_tb_livro(self, main_window):
         main_window.tb_acervo_livro.setRowCount(0)
@@ -93,7 +79,6 @@ class MainWindowService:
                 main_window.tb_acervo_livro.setItem(linha, 0, QTableWidgetItem(livro.titulo))
                 main_window.tb_acervo_livro.setItem(linha, 1, QTableWidgetItem(livro.autor))
                 main_window.tb_acervo_livro.setItem(linha, 2, QTableWidgetItem(str(livro.ano)))
-                main_window.tb_acervo_livro.setItem(linha, 3, QTableWidgetItem(""))
 
     def populate_tb_usuarios(self, main_window):
         main_window.tb_usuario.setRowCount(0)

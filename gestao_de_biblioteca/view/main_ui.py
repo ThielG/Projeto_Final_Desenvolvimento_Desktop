@@ -501,18 +501,14 @@ class Ui_MainWindow(object):
         self.tb_acervo_livro.setEditTriggers(QTableWidget.NoEditTriggers)
         self.tb_acervo_livro.setSelectionMode(QAbstractItemView.SingleSelection)
 
-        if (self.tb_acervo_livro.columnCount() < 4):
-            self.tb_acervo_livro.setColumnCount(4)
+        if (self.tb_acervo_livro.columnCount() < 3):
+            self.tb_acervo_livro.setColumnCount(3)
         __qtablewidgetitem9 = QTableWidgetItem()
         self.tb_acervo_livro.setHorizontalHeaderItem(0, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
         self.tb_acervo_livro.setHorizontalHeaderItem(1, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
         self.tb_acervo_livro.setHorizontalHeaderItem(2, __qtablewidgetitem11)
-        __qtablewidgetitem12 = QTableWidgetItem()
-        self.tb_acervo_livro.setHorizontalHeaderItem(3, __qtablewidgetitem12)
-        if (self.tb_acervo_livro.rowCount() < 3):
-            self.tb_acervo_livro.setRowCount(3)
         self.tb_acervo_livro.setObjectName(u"tb_acervo_livro")
         self.tb_acervo_livro.setStyleSheet(u"QTableView {\n"
 "background-color: #6ceada3;\n"
@@ -521,7 +517,6 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.tb_acervo_livro.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tb_acervo_livro.setRowCount(3)
         self.tb_acervo_livro.verticalHeader().setVisible(False)
 
         self.verticalLayout_2.addWidget(self.tb_acervo_livro)
@@ -723,8 +718,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Autor", None));
         ___qtablewidgetitem11 = self.tb_acervo_livro.horizontalHeaderItem(2)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Ano de publica\u00e7\u00e3o", None));
-        ___qtablewidgetitem12 = self.tb_acervo_livro.horizontalHeaderItem(3)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Resumo", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_livro), QCoreApplication.translate("MainWindow", u"Livro", None))
         self.lbl_cadastro_usuario.setText(QCoreApplication.translate("MainWindow", u"Cadastro de usu\u00e1rios:", None))
         self.lbl_nome_usuario.setText(QCoreApplication.translate("MainWindow", u"Nome:", None))
