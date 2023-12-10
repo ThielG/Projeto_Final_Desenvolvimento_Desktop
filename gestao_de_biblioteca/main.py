@@ -19,29 +19,26 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.service_main_window = MainWindowService()
         self.service_usuario = UsuarioService()
         self.service_main_window.populate_tb_usuarios(self)
+        self.service_main_window.populate_tb_livro(self)
         self.service_livro = LivroService()
         self.service_emprestimo = EmprestimoService()
 
-        self.service_main_window.populate_tb_acervo(self)
-        self.service_main_window.populate_tb_usuarios(self)
-        self.service_main_window.populate_tb_livro(self)
-
-        # tela emprestimo
+        #tela emprestimo
         self.btn_pesquisar.clicked.connect(self.pesquisar_livro)
         self.btn_emprestimo.clicked.connect(self.emprestar_livro)
         self.btn_devolucao.clicked.connect(self.devolver_emprestimo)
         self.btn_renovacao.clicked.connect(self.remover_emprestimo)
 
-        # tela relatorio
+        #tela relatorio
         self.btn_consultar.clicked.connect(self.adicionar_usuario)
         self.btn_exportar.clicked.connect(self.atualizar_usuario)
 
-        # tela livro
+        #tela livro
         self.btn_adicionar_livro.clicked.connect(self.adicionar_livro)
         self.btn_editar_livro.clicked.connect(self.atualizar_livro)
         self.btn_remover_livro.clicked.connect(self.remover_livro)
 
-        # tela usuario
+        #tela usuario
         self.btn_adicionar_usuario.clicked.connect(self.adicionar_usuario)
         self.btn_editar_usuario.clicked.connect(self.atualizar_usuario)
         self.btn_remover_usuario.clicked.connect(self.remover_usuario)
@@ -53,7 +50,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         livro = self.service_emprestimo.select_livro_emprestimo(self)
         if livro is not None:
             emprestimo_ui = EmprestimoDialog(self, livro)
-            emprestimo_ui.exec()
+            emprestimo_ui.exec_()
 
     def devolver_emprestimo(self):
         self.service_emprestimo.devolver_emprestimo(self)
@@ -90,8 +87,6 @@ class EmprestimoDialog(QDialog, Ui_Dialog):
         self.service_usuario = UsuarioService()
         self.service_emprestimo = EmprestimoService()
         self.service_livro = LivroService()
-
-        self.txt_livro_emprestimo.setText(livro.titulo)
 
         self.btn_consultar_emprestimo.clicked.connect(self.select_usuario)
         self.btn_confirmar_emprestimo.clicked.connect(self.adicionar_emprestimo)

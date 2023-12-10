@@ -24,7 +24,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QApplication, QComboBox, QHBox
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
+            MainWindow.setObjectName(u"Bibl.io")
         MainWindow.resize(800, 600)
         icon = QIcon()
         icon.addFile(u"view/pilha.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -40,7 +40,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.widget.setStyleSheet(u"image: url(:/icon/pilha.png);\\n")
+        self.widget.setStyleSheet(u"image: url(view/pilha.png)")
 
         self.horizontalLayout_6.addWidget(self.widget)
 
@@ -140,7 +140,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QComboBox::down-arrow {\n"
-"    image: url(:/icon/down.png);\n"
+"    image: url(view/down.png);\n"
 "	ma"
                         "x-width: 22px;\n"
 "	\n"
@@ -501,14 +501,16 @@ class Ui_MainWindow(object):
         self.tb_acervo_livro.setEditTriggers(QTableWidget.NoEditTriggers)
         self.tb_acervo_livro.setSelectionMode(QAbstractItemView.SingleSelection)
 
-        if (self.tb_acervo_livro.columnCount() < 3):
-            self.tb_acervo_livro.setColumnCount(3)
+        if (self.tb_acervo_livro.columnCount() < 4):
+            self.tb_acervo_livro.setColumnCount(4)
         __qtablewidgetitem9 = QTableWidgetItem()
         self.tb_acervo_livro.setHorizontalHeaderItem(0, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
         self.tb_acervo_livro.setHorizontalHeaderItem(1, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
         self.tb_acervo_livro.setHorizontalHeaderItem(2, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.tb_acervo_livro.setHorizontalHeaderItem(3, __qtablewidgetitem12)
         self.tb_acervo_livro.setObjectName(u"tb_acervo_livro")
         self.tb_acervo_livro.setStyleSheet(u"QTableView {\n"
 "background-color: #6ceada3;\n"
@@ -559,6 +561,7 @@ class Ui_MainWindow(object):
 
         self.txt_cpf_usuario = QLineEdit(self.tab_usuario)
         self.txt_cpf_usuario.setObjectName(u"txt_cpf_usuario")
+        #self.txt_cpf_usuario.setInputMask("000.000.000-00")
         self.txt_cpf_usuario.setStyleSheet(u"padding: 5px;\n"
 "border-radius: 5px;\n"
 "background-color: #EAE0D6;")
@@ -666,7 +669,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("bibl.io", u"bibl.io", None))
         self.lbl_titulo_app.setText(QCoreApplication.translate("MainWindow", u"bibl.io", None))
         self.lbl_pesquisar.setText(QCoreApplication.translate("MainWindow", u"Pesquisar:", None))
         self.cb_tipo_pesquisa.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u00edtulo", None))
@@ -718,6 +721,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Autor", None));
         ___qtablewidgetitem11 = self.tb_acervo_livro.horizontalHeaderItem(2)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Ano de publica\u00e7\u00e3o", None));
+        ___qtablewidgetitem12 = self.tb_acervo_livro.horizontalHeaderItem(3)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Resumo", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_livro), QCoreApplication.translate("MainWindow", u"Livro", None))
         self.lbl_cadastro_usuario.setText(QCoreApplication.translate("MainWindow", u"Cadastro de usu\u00e1rios:", None))
         self.lbl_nome_usuario.setText(QCoreApplication.translate("MainWindow", u"Nome:", None))

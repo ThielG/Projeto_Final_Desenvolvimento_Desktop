@@ -20,14 +20,21 @@ class UsuarioService:
         usuario.nome = main_window.txt_nome_usuario.text()
         usuario.cpf = main_window.txt_cpf_usuario.text()
         usuario.ativo = True
-        try:
-            self.usuario_repository.insert_one_usuario(usuario)
-            main_window.txt_nome_usuario.setText('')
-            main_window.txt_cpf_usuario.setText('')
-            self.main_window_service.populate_tb_usuarios(main_window)
-            QMessageBox.information(main_window, "Cadastro de usuário", "Usuário cadastrado com sucesso!")
-        except Exception as e:
-            QMessageBox.warning(main_window, "Atenção", f"Problema ao cadastrar usuário.\n {e}")
+        if main_window.txt_nome_usuario.text() == '':
+            QMessageBox.warning(main_window, "Atenção", "Nome inválido.")
+        elif main_window.txt_cpf_usuario.text() == '':
+            QMessageBox.warning(main_window, "Atenção", "CPF inválido.")
+        elif len(main_window.txt_cpf_usuario.text()) != 11:
+            QMessageBox.warning(main_window, "Atenção", "Falta números no CPF digitado.")
+        else:
+            try:
+                self.usuario_repository.insert_one_usuario(usuario)
+                main_window.txt_nome_usuario.setText('')
+                main_window.txt_cpf_usuario.setText('')
+                self.main_window_service.populate_tb_usuarios(main_window)
+                QMessageBox.information(main_window, "Cadastro de usuário", "Usuário cadastrado com sucesso!")
+            except Exception as e:
+                QMessageBox.warning(main_window, "Atenção", f"Problema ao cadastrar usuário.\n {e}")
 
     def update_usuario(self, main_window):
         if main_window.btn_editar_usuario.text() == 'Editar':
@@ -43,16 +50,18 @@ class UsuarioService:
             cpf_usuario = main_window.txt_cpf_usuario.text()
             usuario_updated = self.usuario_repository.select_usuario_by_cpf(cpf_usuario)
             usuario_updated.nome = main_window.txt_nome_usuario.text()
-
-            try:
-                self.usuario_repository.update_usuario(usuario_updated)
-                QMessageBox.information(main_window, "Cadastro de usuário", "Usuário atualizado com sucesso")
-                main_window.btn_editar_usuario.setText('Editar')
-                main_window.txt_nome_usuario.clear()
-                main_window.txt_cpf_usuario.clear()
-                self.main_window_service.populate_tb_usuarios(main_window)
-            except Exception as e:
-                QMessageBox.warning(main_window, "Atenção", f"Problema ao atualizar funcionário.\n")
+            if main_window.txt_nome_usuario.text() == '':
+                QMessageBox.warning(main_window, "Atenção", "Nome inválido.")
+            else:
+                try:
+                    self.usuario_repository.update_usuario(usuario_updated)
+                    QMessageBox.information(main_window, "Cadastro de usuário", "Usuário atualizado com sucesso")
+                    main_window.btn_editar_usuario.setText('Editar')
+                    main_window.txt_nome_usuario.clear()
+                    main_window.txt_cpf_usuario.clear()
+                    self.main_window_service.populate_tb_usuarios(main_window)
+                except Exception as e:
+                    QMessageBox.warning(main_window, "Atenção", f"Problema ao atualizar funcionário.\n{e}")
 
     def delete_usuario(self, main_window):
         selected_rows = main_window.tb_usuario.selectionModel().selectedRows()
@@ -73,8 +82,7 @@ class UsuarioService:
                 self.usuario_repository.delete_usuario(usuario_delete)
                 self.main_window_service.populate_tb_usuarios(main_window)
             except Exception as e:
-                QMessageBox.warning(main_window, "Atenção", "Problema ao remover usuário.\n"
-                                    f"Erro: {e}")
+                QMessageBox.warning(main_window, "Atenção", "Problema ao remover usuário.\n"f"{e}")
 
     def select_usuario(self, emprestimo_ui):
         if emprestimo_ui.btn_consultar_emprestimo.text() == 'Limpar':
@@ -95,7 +103,7 @@ class UsuarioService:
                 else:
                     QMessageBox.warning(emprestimo_ui, "Atenção", "Digite um CPF para consulta!")
             except Exception as e:
-                QMessageBox.warning(emprestimo_ui, "Atenção", "Usuário não encontrado!")
+                QMessageBox.warning(emprestimo_ui, "Atenção", f"Usuário não encontrado!\n{e}")
                 emprestimo_ui.txt_nome_emprestimo.clear()
 
 
