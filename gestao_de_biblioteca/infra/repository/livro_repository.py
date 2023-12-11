@@ -12,14 +12,14 @@ class LivroRepository:
             return livro
 
     @staticmethod
-    def select_livro_by_titulo(titulo_livro):
+    def select_livros_by_titulo(titulo_livro):
         with DBConnectionHandler() as db:
             livros = db.session.query(Livro).filter(
                 or_(Livro.titulo == titulo_livro, Livro.titulo.ilike(f'%{titulo_livro}%'))).all()
             return livros
 
     @staticmethod
-    def select_livro_emprestimo(titulo_livro):
+    def select_livro_by_titulo(titulo_livro):
         with DBConnectionHandler() as db:
             livro = db.session.query(Livro).filter(Livro.titulo == titulo_livro).first()
             return livro
@@ -69,3 +69,4 @@ class LivroRepository:
         with DBConnectionHandler() as db:
             db.session.query(Livro).filter(Livro.id == livro.id).update({'ativo': False})
             db.session.commit()
+

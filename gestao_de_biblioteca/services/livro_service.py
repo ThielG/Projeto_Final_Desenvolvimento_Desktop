@@ -22,15 +22,22 @@ class LivroService:
         livro.ano = main_window.txt_anodePublicacao_livro.text()
         livro.ativo = True
         livro.status_disponivel = True
-        try:
-            self.livro_repository.insert_one_livro(livro)
-            main_window.txt_titulo_livro.setText('')
-            main_window.txt_autor_livro.setText('')
-            main_window.txt_anodePublicacao_livro.setText('')
-            self.main_window_service.populate_tb_livro(main_window)
-            QMessageBox.information(main_window, 'Cadastro de livro:', 'Livro cadastrado com sucesso!')
-        except Exception as e:
-            QMessageBox.warning(main_window, 'Atenção!', f'Problemas ao cadastrar o livro.\nErro: {e}')
+        if main_window.txt_titulo_livro.text() == '':
+            QMessageBox.warning(main_window, 'Atenção!', 'Informe o título do livro.')
+        elif main_window.txt_autor_livro.text() == '':
+            QMessageBox.warning(main_window, 'Atenção', 'Informe o autor do livro.')
+        elif main_window.txt_anodePublicacao_livro.text() == '':
+            QMessageBox.warning(main_window, 'Atenção', 'Informe o ano de publicação.')
+        else:
+            try:
+                self.livro_repository.insert_one_livro(livro)
+                main_window.txt_titulo_livro.setText('')
+                main_window.txt_autor_livro.setText('')
+                main_window.txt_anodePublicacao_livro.setText('')
+                main_window.repopulate_all_tables()
+                QMessageBox.information(main_window, 'Cadastro de livro:', 'Livro cadastrado com sucesso!')
+            except Exception as e:
+                QMessageBox.warning(main_window, 'Atenção!', f'Problemas ao cadastrar o livro.\nErro: {e}')
 
     def update_livro(self, main_window):
         if main_window.btn_editar_livro.text() == 'Editar':
@@ -44,23 +51,27 @@ class LivroService:
             main_window.txt_anodePublicacao_livro.setText(main_window.tb_acervo_livro.item(selected_rows, 2).text())
             main_window.btn_editar_livro.setText('Atualizar')
         else:
-            titulo_livro = main_window.txt_titulo_livro.text()
-            update_livro = self.livro_repository.select_livro_by_titulo(titulo_livro)
-            # TODO Perguntar para o Titione se a atualização de livro usando o parametro "titulo" faz sentido
-            update_livro.titulo = main_window.txt_titulo_livro.text()
-            update_livro.autor = main_window.txt_autor_livro.text()
-            update_livro.ano = main_window.txt_anodePublicacao_livro.text()
-            try:
-                self.livro_repository.update_livro(update_livro)
-                QMessageBox.information(main_window, "Cadastro de livro", "Livro atualizado com sucesso!")
-                main_window.btn_editar_livro.setText('Editar')
-                main_window.txt_titulo_livro.clear()
-                main_window.txt_autor_livro.clear()
-                main_window.txt_anodePublicacao_livro.clear()
-                self.service_main_window.populate_tb_livro(main_window)
-            except Exception as e:
-                QMessageBox.warning(main_window, "Atenção", f"Problema ao atualizar livro.\nErro: {e}")
-
+            if main_window.txt_titulo_livro.text() == '':
+                QMessageBox.warning(main_window, 'Atenção!', 'Informe o título do livro.')
+            elif main_window.txt_autor_livro.text() == '':
+                QMessageBox.warning(main_window, 'Atenção', 'Informe o autor do livro.')
+            elif main_window.txt_anodePublicacao_livro.text() == '':
+                QMessageBox.warning(main_window, 'Atenção', 'Informe o ano de publicação.')
+            else:
+                update_livro = self.livro_repository.select_livro_by_id(Livro.id)
+                update_livro.titulo = main_window.txt_titulo_livro.text()
+                update_livro.autor = main_window.txt_autor_livro.text()
+                update_livro.ano = main_window.txt_anodePublicacao_livro.text()
+                try:
+                    self.livro_repository.update_livro(update_livro)
+                    QMessageBox.information(main_window, "Cadastro de livro", "Livro atualizado com sucesso!")
+                    main_window.btn_editar_livro.setText('Editar')
+                    main_window.txt_titulo_livro.clear()
+                    main_window.txt_autor_livro.clear()
+                    main_window.txt_anodePublicacao_livro.clear()
+                    main_window.repopulate_all_tables()
+                except Exception as e:
+                    QMessageBox.warning(main_window, "Atenção", f"Problema ao atualizar livro.\nErro: {e}")
 
     def delete_livro(self, main_window):
         selected_rows = main_window.tb_acervo_livro.selectionModel().selectedRows()
@@ -77,7 +88,6 @@ class LivroService:
         if msg_box.clickedButton() == yes_button:
             try:
                 self.livro_repository.delete_livro(delete_livro)
-                self.main_window_service.populate_tb_livro(main_window)
+                main_window.repopulate_all_tables()
             except Exception as e:
                 QMessageBox.warning(main_window, "Atenção", f"Erro ao remover livro.\nErro: {e}")
-

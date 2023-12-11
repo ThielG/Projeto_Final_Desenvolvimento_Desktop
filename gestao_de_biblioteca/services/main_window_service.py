@@ -31,7 +31,7 @@ class MainWindowService:
         for linha, livro in enumerate(lista_livros):
             if livro.ativo is True:
                 main_window.tb_acervo_emprestimos.setItem(linha, 0, QTableWidgetItem(
-                    "Dispovível" if livro.status_disponivel is True else "Emprestado"))
+                    "Disponível" if livro.status_disponivel is True else "Emprestado"))
                 main_window.tb_acervo_emprestimos.setItem(linha, 1, QTableWidgetItem(livro.titulo))
                 main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.autor))
                 main_window.tb_acervo_emprestimos.setItem(linha, 3, QTableWidgetItem(str(livro.ano)))
@@ -40,7 +40,7 @@ class MainWindowService:
         main_window.tb_acervo_emprestimos.setRowCount(0)
         if (main_window.txt_pesquisa_inicio.text() != ""
                 and main_window.cb_tipo_pesquisa.currentText() == "Título"):
-            livros = self.livro_repository.select_livro_by_titulo(main_window.txt_pesquisa_inicio.text())
+            livros = self.livro_repository.select_livros_by_titulo(main_window.txt_pesquisa_inicio.text())
 
         elif (main_window.txt_pesquisa_inicio.text() != ""
               and main_window.cb_tipo_pesquisa.currentText() == "Autor"):
@@ -62,7 +62,7 @@ class MainWindowService:
         for linha, livro in enumerate(livros):
             if livro.ativo is True:
                 main_window.tb_acervo_emprestimos.setItem(linha, 0, QTableWidgetItem(
-                    "Dispovível" if livro.status_disponivel is True else "Emprestado"))
+                    "Disponível" if livro.status_disponivel is True else "Emprestado"))
                 main_window.tb_acervo_emprestimos.setItem(linha, 1, QTableWidgetItem(livro.titulo))
                 main_window.tb_acervo_emprestimos.setItem(linha, 2, QTableWidgetItem(livro.autor))
                 main_window.tb_acervo_emprestimos.setItem(linha, 3, QTableWidgetItem(str(livro.ano)))

@@ -31,6 +31,15 @@ class EmprestimoRepository:
                 print(f'Erro: {e}')
 
     @staticmethod
+    def update_emprestimo(emprestimo):
+        with DBConnectionHandler() as db:
+            today = datetime.now()
+            try:
+                emprestimo.data_devolucao = today + timedelta(days=7)
+                db.session.commit()
+            except Exception as e:
+                print(f'Erro: {e}')
+    @staticmethod
     def finalize_emprestimo(emprestimo):
         livro = emprestimo.livro
         usuario = emprestimo.usuario
@@ -43,8 +52,14 @@ class EmprestimoRepository:
                                                               'ativo': False})
                 db.session.query(Livro).filter(Livro.id == livro.id).update({'status_disponivel': True})
                 db.session.commit()
+
+                livro.status_disponivel = True
+                emprestimo.ativo = False
             except Exception as e:
+                db.session.rollback()
                 print(f'Erro: {e}')
+
+
 
     @staticmethod
     def select_all_emprestimos():
@@ -75,10 +90,19 @@ class EmprestimoRepository:
                 return emprestimos
         except Exception as e:
             print(e)
+
     @staticmethod
-    def select_emprestimo_by_livro(livro):
+    def select_one_emprestimo(livro):
         with DBConnectionHandler() as db:
-            emprestimo = db.session.query(Emprestimo).filter(Emprestimo.livro_id == livro.id).first()
+            emprestimo = (
+                db.session.query(Emprestimo)
+                .join(Livro)
+                .filter(Livro.id == livro.id)
+                .options(joinedload(Emprestimo.livro))
+                .options(joinedload(Emprestimo.usuario))
+                .filter(Emprestimo.ativo == True)
+                .first()
+            )
             return emprestimo
 
 
@@ -96,3 +120,5 @@ class EmprestimoRepository:
         with DBConnectionHandler() as db:
             db.session.delete(data)
             db.session.commit()
+
+

@@ -32,7 +32,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.btn_pesquisar.clicked.connect(self.pesquisar_livro)
         self.btn_emprestimo.clicked.connect(self.emprestar_livro)
         self.btn_devolucao.clicked.connect(self.devolver_emprestimo)
-        self.btn_renovacao.clicked.connect(self.remover_emprestimo)
+        self.btn_renovacao.clicked.connect(self.renovar_emprestimo)
 
         # tela relatorio
         # self.btn_consultar.clicked.connect(self.adicionar_usuario)
@@ -55,14 +55,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def emprestar_livro(self):
         livro = self.service_emprestimo.select_livro_emprestimo(self)
         if livro is not None:
-            emprestimo_ui = EmprestimoDialog(self, livro)
-            emprestimo_ui.exec()
+            self.emprestimo_ui = EmprestimoDialog(self, livro)
+            self.emprestimo_ui.show()
+            self.emprestimo_ui.finished.connect(
+                lambda: self.service_main_window.populate_relatorio(self)
+            )
 
     def devolver_emprestimo(self):
         self.service_emprestimo.devolver_emprestimo(self)
 
-    def remover_emprestimo(self):
-        self.service_emprestimo.devolver_emprestimo(self)
+    def renovar_emprestimo(self):
+        self.service_emprestimo.renovar_emprestimo(self)
 
     def adicionar_livro(self):
         self.service_livro.insert_livro(self)
@@ -81,6 +84,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def remover_usuario(self):
         self.service_usuario.delete_usuario(self)
+
+    def repopulate_all_tables(self):
+        self.service_main_window.populate_tb_acervo(self)
+        self.service_main_window.populate_tb_usuarios(self)
+        self.service_main_window.populate_tb_livro(self)
+        self.service_main_window.populate_relatorio(self)
 
 
 class EmprestimoDialog(QDialog, Ui_Dialog):
@@ -103,9 +112,6 @@ class EmprestimoDialog(QDialog, Ui_Dialog):
 
     def adicionar_emprestimo(self):
         self.service_emprestimo.adicionar_emprestimo(self, self.livro)
-        self.service_main_window.populate_tb_acervo(main_window=MainWindow)
-
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
