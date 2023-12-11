@@ -37,7 +37,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # tela relatorio
         # self.btn_consultar.clicked.connect(self.adicionar_usuario)
         # self.btn_exportar.clicked.connect(self.atualizar_usuario)
-
+        self.btn_exportar.clicked.connect(self.exportar_relatorio)
 
         # tela livro
         self.btn_adicionar_livro.clicked.connect(self.adicionar_livro)
@@ -91,6 +91,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.service_main_window.populate_tb_livro(self)
         self.service_main_window.populate_relatorio(self)
 
+    def exportar_relatorio(self):
+        self.service_main_window.export_relatorio(self)
+
 
 class EmprestimoDialog(QDialog, Ui_Dialog):
     def __init__(self, parent=None, livro=None):
@@ -112,6 +115,7 @@ class EmprestimoDialog(QDialog, Ui_Dialog):
 
     def adicionar_emprestimo(self):
         self.service_emprestimo.adicionar_emprestimo(self, self.livro)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

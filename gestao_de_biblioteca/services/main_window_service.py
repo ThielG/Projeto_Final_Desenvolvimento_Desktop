@@ -16,8 +16,6 @@ class MainWindowService:
         self.livro_repository = LivroRepository()
         self.usuario_repository = UsuarioRepository()
 
-
-
     def populate_tb_acervo(self, main_window):
 
         main_window.tb_acervo_emprestimos.setRowCount(0)
@@ -105,29 +103,25 @@ class MainWindowService:
             main_window.tb_emprestimos.setItem(linha, 3, QTableWidgetItem(usuario.nome))
             main_window.tb_emprestimos.setItem(linha, 4, QTableWidgetItem(livro.autor))
 
+    def export_relatorio(self, main_window):
+        if main_window.tb_emprestimos.rowCount() > 0:
+            rows = main_window.tb_emprestimos.rowCount()
+            cols = main_window.tb_emprestimos.columnCount()
+            headers = ['Título', 'Data de empréstimo', 'Data de retorno', 'Usuário', 'Autor']
+            data = []
+            for row in range(rows):
+                row_data = []
+                for col in range(cols):
+                    item = main_window.tb_emprestimos.item(row, col)
+                    if item and item.text():
+                        row_data.append(item.text())
+                    else:
+                        row_data.append('')
+                data.append(row_data)
+            df = pd.DataFrame(data, columns=headers)
 
-    # def export_relatorio(self, main_window):
-    #     #TODO para relatórios será necessário colocar o botão novamente, e validar se a tabela atual da página
-    #     # é a tabela de emprestimos ou a de livros(pesquisa)
-    #     if main_window.tb_emprestimos.rowCount() > 0:
-    #         rows = main_window.tb_emprestimos.rowCount()
-    #         cols = main_window.tb_emprestimos.columnCount()
-    #         headers = ['Status', 'Título', 'Autor', 'Data de empréstimo', 'Data de retorno', 'Usuário']
-    #         data = []
-    #         for row in range(rows):
-    #             row_data = []
-    #             for col in range(cols):
-    #                 item = main_window.tb_emprestimos.item(row, col)
-    #                 if item and item.text():
-    #                     row_data.append(item.text())
-    #                 else:
-    #                     row_data.append('')
-    #             data.append(row_data)
-    #         df = pd.DataFrame(data, columns=headers)
-    #
-    #         try:
-    #             df.to_excel(f'relatorio_{datetime.datetime.now()}.xlsx', index=False)
-    #             # TODO Talvez o nome do relatório poderá ser alterado
-    #             QMessageBox.information(main_window, 'Relatório', f'Relatório de empréstimos exportado com sucesso')
-    #         except Exception as e:
-    #             QMessageBox.warning(main_window, 'Atenção:', f'Não foi possível exportar o relatório.\nErro: {e}')
+            try:
+                df.to_excel('relatorio_emprestimos.xlsx', index=False)
+                QMessageBox.information(main_window, 'Relatório', f'Relatório de empréstimos exportado com sucesso')
+            except Exception as e:
+                QMessageBox.warning(main_window, 'Atenção:', f'Não foi possível exportar o relatório.\nErro: {e}')
