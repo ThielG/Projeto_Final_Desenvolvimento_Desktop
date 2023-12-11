@@ -18,7 +18,6 @@ class EmprestimoRepository:
             emp.usuario_id = usuario.id
             today = datetime.now()
             emp.data_emprestimo = today
-            emp.data_devolucao = today + timedelta(days=7)
             emp.ativo = True
             try:
                 db.session.add(emp)
@@ -48,8 +47,7 @@ class EmprestimoRepository:
             try:
                 db.session.query(Emprestimo).filter(Emprestimo.livro_id == livro.id,
                                                     Emprestimo.usuario_id == usuario.id,
-                                                    ).update({'data_devolucao': today,
-                                                              'ativo': False})
+                                                    ).update({'data_devolucao': today, 'ativo': False})
                 db.session.query(Livro).filter(Livro.id == livro.id).update({'status_disponivel': True})
                 db.session.commit()
 
@@ -105,7 +103,6 @@ class EmprestimoRepository:
             )
             return emprestimo
 
-
     @staticmethod
     def select_emprestimos_ativos():
         with DBConnectionHandler as db:
@@ -113,7 +110,6 @@ class EmprestimoRepository:
                 db.session.query(Emprestimo, Usuario, Livro).join(Usuario, Usuario.id == Emprestimo.usuario_id)
                 .join(Livro, Livro.id == Emprestimo.livro_id).filter(Emprestimo.ativo._is(True)).all())
             return emprestimos
-
 
     @staticmethod
     def delete_emprestimo(data):

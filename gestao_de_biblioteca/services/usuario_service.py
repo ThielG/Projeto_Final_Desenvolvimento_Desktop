@@ -25,13 +25,16 @@ class UsuarioService:
         elif main_window.txt_cpf_usuario.text() == '':
             QMessageBox.warning(main_window, "Atenção", "CPF inválido.")
         elif len(main_window.txt_cpf_usuario.text()) != 11:
+
             QMessageBox.warning(main_window, "Atenção", "CPF incompleto.")
+
         else:
             try:
                 self.usuario_repository.insert_one_usuario(usuario)
                 main_window.txt_nome_usuario.setText('')
                 main_window.txt_cpf_usuario.setText('')
                 main_window.repopulate_all_tables()
+
                 QMessageBox.information(main_window, "Cadastro de usuário", "Usuário cadastrado com sucesso!")
             except Exception as e:
                 QMessageBox.warning(main_window, "Atenção", f"Problema ao cadastrar usuário.\n {e}")
@@ -60,6 +63,7 @@ class UsuarioService:
                     main_window.txt_nome_usuario.clear()
                     main_window.txt_cpf_usuario.clear()
                     main_window.repopulate_all_tables()
+
                 except Exception as e:
                     QMessageBox.warning(main_window, "Atenção", f"Problema ao atualizar funcionário.\n{e}")
 

@@ -20,6 +20,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.service_main_window = MainWindowService()
         self.service_usuario = UsuarioService()
         self.service_main_window.populate_tb_usuarios(self)
+        self.service_main_window.populate_tb_livro(self)
         self.service_livro = LivroService()
         self.service_emprestimo = EmprestimoService()
 
@@ -39,12 +40,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.btn_exportar.clicked.connect(self.atualizar_usuario)
 
 
-        # tela livro
+        #tela livro
         self.btn_adicionar_livro.clicked.connect(self.adicionar_livro)
         self.btn_editar_livro.clicked.connect(self.atualizar_livro)
         self.btn_remover_livro.clicked.connect(self.remover_livro)
 
-        # tela usuario
+        #tela usuario
         self.btn_adicionar_usuario.clicked.connect(self.adicionar_usuario)
         self.btn_editar_usuario.clicked.connect(self.atualizar_usuario)
         self.btn_remover_usuario.clicked.connect(self.remover_usuario)

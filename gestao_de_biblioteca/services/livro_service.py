@@ -34,7 +34,9 @@ class LivroService:
                 main_window.txt_titulo_livro.setText('')
                 main_window.txt_autor_livro.setText('')
                 main_window.txt_anodePublicacao_livro.setText('')
+
                 main_window.repopulate_all_tables()
+
                 QMessageBox.information(main_window, 'Cadastro de livro:', 'Livro cadastrado com sucesso!')
             except Exception as e:
                 QMessageBox.warning(main_window, 'Atenção!', f'Problemas ao cadastrar o livro.\nErro: {e}')
@@ -70,6 +72,7 @@ class LivroService:
                     main_window.txt_autor_livro.clear()
                     main_window.txt_anodePublicacao_livro.clear()
                     main_window.repopulate_all_tables()
+
                 except Exception as e:
                     QMessageBox.warning(main_window, "Atenção", f"Problema ao atualizar livro.\nErro: {e}")
 

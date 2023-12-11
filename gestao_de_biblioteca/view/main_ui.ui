@@ -87,7 +87,7 @@ color: #100907;</string>
          <string notr="true">background-color: rgb(244, 243, 238);</string>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_emprestimo">
          <attribute name="title">
@@ -850,8 +850,6 @@ selection-background-color:#EAE0D;
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

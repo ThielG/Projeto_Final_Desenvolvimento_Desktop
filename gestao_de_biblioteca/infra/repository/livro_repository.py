@@ -14,8 +14,7 @@ class LivroRepository:
     @staticmethod
     def select_livros_by_titulo(titulo_livro):
         with DBConnectionHandler() as db:
-            livros = db.session.query(Livro).filter(
-                or_(Livro.titulo == titulo_livro, Livro.titulo.ilike(f'%{titulo_livro}%'))).all()
+            livros = db.session.query(Livro).filter(or_(Livro.titulo == titulo_livro, Livro.titulo.ilike(f'%{titulo_livro}%'))).all()
             return livros
 
     @staticmethod
@@ -26,22 +25,21 @@ class LivroRepository:
 
     @staticmethod
     def select_livro_by_autor(autor_livro):
-        with (DBConnectionHandler() as db):
-            livros = db.session.query(Livro).filter(
-                or_(Livro.autor == autor_livro, Livro.autor.ilike(f'%{autor_livro}%'))).all()
-            return livros
+        with DBConnectionHandler() as db:
+            livro = db.session.query(Livro).filter(Livro.autor == autor_livro).first()
+            return livro
 
     @staticmethod
     def select_livro_by_ano(ano_livro):
         with DBConnectionHandler() as db:
-            livros = db.session.query(Livro).filter(Livro.ano == ano_livro).all()
-            return livros
+            livro = db.session.query(Livro).filter(Livro.ano == ano_livro).first()
+            return livro
 
     @staticmethod
     def select_all_livros():
         with DBConnectionHandler() as db:
-            livros = db.session.query(Livro).all()
-            return livros
+            livro = db.session.query(Livro).all()
+            return livro
 
     @staticmethod
     def select_first_livro():
