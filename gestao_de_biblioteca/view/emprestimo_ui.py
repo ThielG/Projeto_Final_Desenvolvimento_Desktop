@@ -23,10 +23,10 @@ from PySide6.QtWidgets import (QApplication, QDialog, QHBoxLayout, QLabel,
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
-            Dialog.setObjectName(u"Dialog")
+            Dialog.setObjectName(u"bibl.io")
         Dialog.resize(298, 277)
         icon = QIcon()
-        icon.addFile(u":/icon/pilha.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"view/pilha.png", QSize(), QIcon.Normal, QIcon.Off)
         Dialog.setWindowIcon(icon)
         Dialog.setStyleSheet(u"background-color: rgb(244, 243, 238);")
         self.horizontalLayout_2 = QHBoxLayout(Dialog)
@@ -121,9 +121,7 @@ class Ui_Dialog(object):
 
         self.verticalLayout.addWidget(self.btn_confirmar_emprestimo)
 
-
         self.horizontalLayout_2.addLayout(self.verticalLayout)
-
 
         self.retranslateUi(Dialog)
 
@@ -131,7 +129,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("bibl.io", u"bibl.io", None))
         self.lbl_emprestimo_livro.setText(QCoreApplication.translate("Dialog", u"Empr\u00e9stimo:", None))
         self.lbl_livro_emprestimo.setText(QCoreApplication.translate("Dialog", u"Livro:", None))
         self.lbl_cpf_emprestimo.setText(QCoreApplication.translate("Dialog", u"CPF:", None))
@@ -139,4 +137,3 @@ class Ui_Dialog(object):
         self.lbl_nome_emprestimo.setText(QCoreApplication.translate("Dialog", u"Nome:", None))
         self.btn_confirmar_emprestimo.setText(QCoreApplication.translate("Dialog", u"Confirmar", None))
     # retranslateUi
-

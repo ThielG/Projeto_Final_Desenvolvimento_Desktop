@@ -1,7 +1,8 @@
 import sys
 
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
-from PySide6.QtCore import Signal
+from PySide6.QtCore import Signal, QSize
 
 from services.main_window_service import MainWindowService
 from services.emprestimo_service import EmprestimoService

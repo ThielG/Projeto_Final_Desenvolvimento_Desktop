@@ -82,6 +82,7 @@ class LivroService:
         msg_box = QMessageBox(main_window)
         msg_box.setWindowTitle("Remover livro")
         msg_box.setIcon(QMessageBox.Question)
+        msg_box.setText(f'Tem certeza que deseja remover o livro {delete_livro.titulo}?')
         yes_button = msg_box.addButton('Sim', QMessageBox.YesRole)
         no_button = msg_box.addButton('Não', QMessageBox.NoRole)
         msg_box.exec()
