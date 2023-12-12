@@ -177,5 +177,6 @@ Os seguintes desenvolvedores foram responsáveis pelo projeto:
 
 </table>
 
+Apresentado em 11/12/2023. 
 
 #### Made with ☕ and Python.
